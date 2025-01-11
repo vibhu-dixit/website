@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vibhu's Portfolio</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+    <nav>
+        <div class="title">Vibhu's Portfolio</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div id="gradient-bg"></div>
+
+    <div class="profile-about-container">
+        <!-- Profile Section -->
+        <section id="profile">
+            <img src="vibhu.jpg" alt="Your Profile Picture" class="profile-pic">
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>Introduction</h2>
+            <p>
+                Hello! I'm Vibhu, a passionate engineer pursuing an MS in Computer Science at ASU. 
+                I specialize in AI, machine learning, and recommendation systems. With a robust background 
+                in full-stack development and generative AI, I create innovative solutions to complex challenges. I started my coding journey in grade 9 with HTML. My journey took me down the road to introduction to C++, which I started learning about in grade 11. I usually do my DSA practice in C++, which helps me keep in touch with the language and practice the concepts. In my undergraduate, I coded in C and Python, building bridges between similar languages. I incline ML and data science, with front-end development as my hobby.<br> You can get my resume by clicking <a href="https://drive.google.com/drive/folders/1Fdm0clWGqJ6wix-C8tRD4666zqUiABcf?usp=sharing">here.</a>
+            </p>
+        </section>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skills-column">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>Python, C++, JavaScript,MySQL</li>
+                    <li>Machine Learning & AI</li>
+                    <li>TensorFlow, PyTorch</li>
+                    <li>Full-stack Development</li>
+                    <li>Database Management</li>
+                    <li>Cloud Services (AWS)</li>
+                </ul>
+            </div>
+            <div class="skills-column">
+                <h3>Professional Skills</h3>
+                <ul>
+                    <li>Problem-solving</li>
+                    <li>Team Collaboration</li>
+                    <li>Project Management</li>
+                    <li>Technical Writing</li>
+                    <li>Research & Analysis</li>
+                    <li>Agile Methodology</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+ <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project-card" data-github="https://github.com/Prateek-Karn/CSE543-IAS-Project-Team-12">
+                <h3>DooFy: Doodle Verify</h3>
+                <p>DooFy’s CAPTCHA system challenges users to complete partial drawings, leveraging human creativity and analyzing both the final result and the drawing process. Its dual-layer verification uses drawing patterns, timing, and pixel-level accuracy to create bot-resistant yet human-solvable tasks.</p>
+                <div class="project-link">
+                    <span>Click to view on GitHub</span>
+                </div>
+            </div>
+            <div class="project-card" data-github="https://ieeexplore.ieee.org/abstract/document/10334126">
+                <h3>PCA + K-Means Clustering</h3>
+                <p>The project uses PCA and K-Means clustering to analyze Delhi's crime data, identifying high-crime zones for resource allocation. PCA-based clustering achieved optimal results with silhouette scores of 0.5828 (2D) and 0.5810 (3D), highlighting areas needing urgent intervention. Published findings in IEEE.</p>
+                <div class="project-link">
+                    <span>Click to view on IEEE</span>
+                </div>
+            </div>
+            <div class="project-card" data-github="https://github.com/vibhu-dixit/PCA-Based-Classification-with-custom-MLP-design-and-CNN-network">
+                <h3>PCA Classification,Custom MLP design, and CNN network</h3>
+                <p>This involves feature normalization, dimensionality reduction using PCA, and Bayesian classification for optimal error-rate prediction, followed by implementing and analyzing neural networks (MLP and CNN) for classification tasks. The focus is on custom-built models and experiments on structured data and the CIFAR-10 dataset to evaluate performance and accuracy.</p>
+                <div class="project-link">
+                    <span>Click to view on GitHub</span>
+                </div>
+            </div>
+            <div class="project-card" data-github="https://github.com/SRIRUPINPOTULA/CSE-515-Project">
+                <h3>Video Similarity Retrieval</h3>
+                <p>Developed an advanced video similarity system using STIP files and tensor-based spatiotemporal analysis to enhance video retrieval accuracy and recommendations. Implemented dimensionality reduction, clustering, and classification for personalized retrieval, action recognition, and improved content organization.</p>
+                <div class="project-link">
+                    <span>Click to view on GitHub</span>
+                </div>
+            </div>
+            <div class="project-card" data-github="https://github.com/vibhu-dixit/prices-predictor-system">
+                <h3>Prices Predictor System with ML Pipeline</h3>
+                <p>Developed an end-to-end house price prediction system, covering data preparation, feature engineering, model training, and deployment with MLOps integration. Leveraging tools like ZenML and MLflow, automated workflows ensured efficient preprocessing, experimentation, and scalable deployment for accurate and reliable predictions.</p>
+                <div class="project-link">
+                    <span>Click to view on GitHub</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-container">
+            <div class="experience-card">
+                <h3>Data Engineering Intern</h3>
+                <p class="company">Alcon</p>
+                <p class="dates">Feb 2024 - August 2024</p>
+                <ul>
+                    <li>Engineered a proof of concept for implementing role-based encryption access on database tables, resulting in a streamlined approval process that reduced access request times by 40% and improved overall data governance.</li>
+                    <li>•Contributed to the creation of a full-stack application using Flask and AWS services for an automated pipeline, achieving a 43% reduction in average project development cycle time.</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>Deep Learning Intern</h3>
+                <p class="company">Bhargava InfoTech Solutions Pvt Ltd</p>
+                <p class="dates">Sep 2023 - Nov 2023</p>
+                <ul>
+                    <li>Engaged in a satellite imagery analysis project using deep learning techniques to determine population density.</li>
+                    <li>Analyzed daytime and nighttime satellite images to extract and model urban population distribution patterns using Convolution Neural Networks(CNN).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:vibhu.dixit02@gmail.com">vibhu.dixit02@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/vibhu-dixit30/" target="_blank">vibhu-dixit30</a></p>
+        <p>GitHub: <a href="https://github.com/vibhu-dixit" target="_blank">vibhu-dixit</a></p>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
