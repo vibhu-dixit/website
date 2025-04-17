@@ -79,7 +79,6 @@ nav ul li a:hover {
     width: calc(100% - 1rem);
     margin: 1rem;
     padding: 2rem;
-    background-color: rgb(255, 255, 255);
     border-radius: 10px;
 }
 
@@ -105,10 +104,11 @@ nav ul li a:hover {
 
 #about {
     width: 100%;
-    padding: 1rem;
     text-align: center;
     margin-top: 0.5rem;
+    margin-bottom: 4rem;
     border: 3rem;
+    background-color: rgba(250, 128, 114, 0.818);
 }
 
 #about h2 {
@@ -130,7 +130,7 @@ section {
     width: calc(100% - 1rem);
     margin: 1rem;
     padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(179, 230, 162, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -151,7 +151,7 @@ h2 {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: #cb7c6e;
     border-radius: 10px;
     padding: 0.75rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -205,7 +205,7 @@ h2 {
 }
 
 .experience-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(211, 242, 241, 0.9);
     border-radius: 10px;
     padding: 0.75rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -252,7 +252,7 @@ h2 {
 }
 
 .skills-column {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 192, 203, 0.723);
     padding: 0.75rem;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -293,6 +293,7 @@ h2 {
 #contact {
     text-align: center;
     padding: 1rem;
+    background-color: #9dede8;
 }
 
 #contact p {
@@ -301,7 +302,7 @@ h2 {
 }
 
 #contact a {
-    color: #3498db;
+    color: #4ba2db;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -352,7 +353,10 @@ h2 {
 
     #profile {
         flex: 1;
-        padding: 0;
+    padding: 0;
+    margin: 0;                   /* remove the extra 2rem top-margin */
+    background-color: transparent;  /* kill the green background */
+    box-shadow: none;
     }
 
     #about {
