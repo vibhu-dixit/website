@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
             radial-gradient(
                 circle at ${gradientX}% ${gradientY}%,
                 rgba(52, 152, 219, 0.5) 0%,
-                rgba(255, 255, 255, 0.5) 10%,  
-                rgba(0, 0, 0, 0.98) 20% 
+                rgba(255, 255, 255, 0.5) 5%,  
+                rgba(0, 0, 0, 0.98) 10% 
             )
         `;
 
