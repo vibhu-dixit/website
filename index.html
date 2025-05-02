@@ -1,162 +1,394 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vibhu's Portfolio</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-<body>
-    <nav>
-        <div class="title">Vibhu's Portfolio</div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div id="gradient-bg"></div>
-
-    <div class="profile-about-container">
-        <!-- Profile Section -->
-        <section id="profile">
-            <img src="vibhu.jpg" alt="Your Profile Picture" class="profile-pic">
-        </section>
-
-        <!-- About Section -->
-        <section id="about" style="padding-bottom: 13px">
-            <h2>Introduction</h2>
-            <p>
-                Hello! I am Vibhu, a dedicated engineer and currently a student in the MS program in Computer Science at ASU. Expertise in artificial intelligence, machine learning, and recommendation systems. I have a strong background in full-stack development and generative AI and love to create innovative solutions for complex challenges.
-                <br>
-                My programming journey began in 9th grade with HTML. I was later introduced to C++ in 11th grade, which remains one of the basic languages for my practice in DSA. The undergraduate level at college saw me practice much of C and Python to cover similar languages and strengthen my base in programming.
-                <br>
-                I have a strong interest in machine learning and data science, which I practice concurrently with front-end development as a creative outlet. This allows me to balance technical skills with user-centered design.<br> You can get my resume by clicking <a href="https://drive.google.com/drive/folders/1Fdm0clWGqJ6wix-C8tRD4666zqUiABcf?usp=sharing">here.</a>
-            </p>
-        </section>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibhu Dixit's Portfolio</title>
+    <!-- Tailwind CSS via CDN (for quick start). For production, install and compile locally. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Optional: Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --color-brand: 56 189 248; /* sky-500 */
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .dark body {
+        background-color: rgb(15 23 42);
+        color: rgb(241 245 249);
+      }
+      #triangle-loader path {
+        fill: none;
+        stroke: rgb(var(--color-brand));
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        /* Use full perimeter length */
+        stroke-dasharray: 70;
+        stroke-dashoffset: 70;
+        animation: draw-triangle 1s ease-in-out forwards;
+      }
+      @keyframes draw-triangle {
+        to { stroke-dashoffset: 0; }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+    <!-- Preloader Overlay -->
+    <div id="preloader" class="fixed inset-0 bg-slate-900 flex items-center justify-center z-50 transition-opacity duration-500">
+      <svg id="triangle-loader" width="60" height="52" viewBox="0 0 24 20">
+        <path d="M12 2 L22 18 L2 18 Z" />
+      </svg>
     </div>
+    <!-- ===== Header / Navigation ===== -->
+    <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-slate-900/60 shadow-sm">
+      <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+        <a href="#" class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Vibhu<span class="text-sky-500">Dixit</span></a>
+        <nav class="hidden md:flex gap-8 text-sm font-medium">
+          <a href="#about" class="hover:text-sky-500">About</a>
+          <a href="#skills" class="hover:text-sky-500">Skills</a>
+          <a href="#projects" class="hover:text-sky-500">Projects</a>
+          <!-- <a href="#blog" class="hover:text-sky-500">Blog</a> -->
+          <a href="#contact" class="hover:text-sky-500">Contact</a>
+        </nav>
+        <!-- Mobile menu button -->
+        <button id="menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile menu panel -->
+      <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur">
+        <nav class="flex flex-col py-4 gap-4 text-center text-lg">
+          <a href="#about" class="hover:text-sky-500">About</a>
+          <a href="#skills" class="hover:text-sky-500">Skills</a>
+          <a href="#projects" class="hover:text-sky-500">Projects</a>
+          <!-- <a href="#blog" class="hover:text-sky-500">Blog</a> -->
+          <a href="#contact" class="hover:text-sky-500">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <div class="skills-column">
-                <h3>Technical Skills</h3>
-                <ul>
-                    <li>Python, C++, JavaScript,MySQL</li>
-                    <li>Machine Learning & AI</li>
-                    <li>TensorFlow, PyTorch, Scikit-learn, Pandas, Numpy, Matplotlib, Seaborn</li>
-                    <li>Full-stack Development</li>
-                    <li>Database Management</li>
-                    <li>Cloud Services (AWS)</li>
-                    <li>Docker,Postman API</li>
-                    <li>Data Visualization,EDA,Feature Engineering</li>
-                </ul>
-            </div>
-            <div class="skills-column">
-                <h3>Professional Skills</h3>
-                <ul>
-                    <li>Problem-solving</li>
-                    <li>Team Collaboration</li>
-                    <li>Project Management</li>
-                    <li>Technical Writing</li>
-                    <li>Research & Analysis</li>
-                    <li>Agile Methodology</li>
-                    <li>Communication</li>
-                    <li>Leadership</li>
-                </ul>
-            </div>
+    <main class="max-w-6xl mx-auto px-4">
+      <!-- ===== Hero Section ===== -->
+      <section class="min-h-[80vh] flex flex-col justify-center items-center text-center" id="home">
+        <div class="flex justify-center mb-6">
+            <img src="photos+images/vibhu_dixit.jpeg" alt="Vibhu Dixit" class="w-80 h-80 rounded-full object-cover border-4 border-sky-500">
+          </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+          Hi, I'm <span class="text-sky-500">Vibhu Dixit</span>.
+          <br class="hidden sm:inline" />
+          <span class="text-2xl sm:text-3xl lg:text-4xl">I solve real life issues using Machine Learning and Data.</span>
+        </h1>
+        <p class="max-w-2xl text-lg text-slate-600 dark:text-slate-300 mb-8">
+          I am a Data-driven engineer who wrangles raw, high-volume data into scalable ML models and real-time dashboards, helping in cutting busy-work, uncovering insights, and enabling teams to act on facts instead of hunches.
+        </p>
+        <div class="flex gap-4">
+          <a href="#projects" class="px-6 py-3 rounded bg-sky-500 text-white font-medium hover:bg-sky-600 transition">View work</a>
+          <a href="#contact" class="px-6 py-3 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Get in touch</a>
+          <a href="Vibhu Dixit's Resume.pdf" download class="px-6 py-3 rounded border border-sky-500 text-sky-600 hover:bg-sky-50 dark:hover:bg-sky-800 transition flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <!-- Download Icon -->
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 10l5 5 5-5M12 15V4" />
+            </svg>
+            Download Résumé
+          </a>
         </div>
-    </section>
- <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects-container">
-            <div class="project-card" data-github="https://github.com/Prateek-Karn/CSE543-IAS-Project-Team-12">
-                <h3>DooFy: Doodle Verify</h3>
-                <p>DooFy’s CAPTCHA system challenges users to complete partial drawings, leveraging human creativity and analyzing both the final result and the drawing process. Its dual-layer verification uses drawing patterns, timing, and pixel-level accuracy to create bot-resistant yet human-solvable tasks.</p>
-                <div class="project-link">
-                    <span>Click to view on GitHub</span>
-                </div>
-            </div>
-            <div class="project-card" data-github="https://ieeexplore.ieee.org/abstract/document/10334126">
-                <h3>PCA + K-Means Clustering</h3>
-                <p>The project uses PCA and K-Means clustering to analyze Delhi's crime data, identifying high-crime zones for resource allocation. PCA-based clustering achieved optimal results with silhouette scores of 0.5828 (2D) and 0.5810 (3D), highlighting areas needing urgent intervention. Published findings in IEEE.</p>
-                <div class="project-link">
-                    <span>Click to view on IEEE</span>
-                </div>
-            </div>
-            <div class="project-card" data-github="https://github.com/vibhu-dixit/PCA-Based-Classification-with-custom-MLP-design-and-CNN-network">
-                <h3>PCA Classification,Custom MLP design, and CNN network</h3>
-                <p>This involves feature normalization, dimensionality reduction using PCA, and Bayesian classification for optimal error-rate prediction, followed by implementing and analyzing neural networks (MLP and CNN) for classification tasks. The focus is on custom-built models and experiments on structured data and the CIFAR-10 dataset to evaluate performance and accuracy.</p>
-                <div class="project-link">
-                    <span>Click to view on GitHub</span>
-                </div>
-            </div>
-            <div class="project-card" data-github="https://github.com/SRIRUPINPOTULA/CSE-515-Project">
-                <h3>Video Recommendation System</h3>
-                <p>Developed an advanced video similarity system using STIP files and tensor-based spatiotemporal analysis to enhance video retrieval accuracy and recommendations. Implemented dimensionality reduction, clustering, and classification for personalized retrieval, action recognition, and improved content organization.</p>
-                <div class="project-link">
-                    <span>Click to view on GitHub</span>
-                </div>
-            </div>
-            <div class="project-card" data-github="https://github.com/vibhu-dixit/prices-predictor-system">
-                <h3>Prices Predictor System with ML Pipeline</h3>
-                <p>Developed an end-to-end house price prediction system, covering data preparation, feature engineering, model training, and deployment with MLOps integration. Leveraging tools like ZenML and MLflow, automated workflows ensured efficient preprocessing, experimentation, and scalable deployment for accurate and reliable predictions.</p>
-                <div class="project-link">
-                    <span>Click to view on GitHub</span>
-                </div>
-            </div>
-            <div class="project-card" data-github="https://github.com/vibhu-dixit/OpenMonitor">
-                <h3>OpenMonitor</h3>
-                <p>OpenMonitor is an AI-powered threat detection and response system that leverages machine learning to analyze and identify suspicious activities when there is entry to any restricted zones. It applies advanced anomaly detection techniques to enhance security by movement detection and mitigating potential threats in real time.Tools used include: Python, Django,YOLOv8 model.</p>
-                <div class="project-link">
-                    <span>Click to view on GitHub</span>
-                </div>
-            </div>
-            <div class="project-card" data-github="https://github.com/vibhu-dixit/Air-ticket-reservation-system">
-                <h3>Air Ticket Reservation System</h3>
-                <p>The Air Ticket Reservation System is a C++ console application for booking, canceling tickets, and managing passenger records. It features a text-based interface and stores flight and passenger data in files for easy access.</p>
-                <div class="project-link">
-                    <span>Click to view on GitHub</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience-container">
-            <div class="experience-card">
-                <h3>Data Engineering Intern</h3>
-                <p class="company">Alcon</p>
-                <p class="dates">Feb 2024 - August 2024</p>
-                <ul>
-                    <li>Engineered a proof of concept for implementing role-based encryption access on database tables, resulting in a streamlined approval process that reduced access request times by 40% and improved overall data governance.</li>
-                    <li>•Contributed to the creation of a full-stack application using Flask and AWS services for an automated pipeline, achieving a 43% reduction in average project development cycle time.</li>
-                </ul>
-            </div>
-            <div class="experience-card">
-                <h3>Deep Learning Intern</h3>
-                <p class="company">Bhargava InfoTech Solutions Pvt Ltd</p>
-                <p class="dates">Sep 2023 - Nov 2023</p>
-                <ul>
-                    <li>Engaged in a satellite imagery analysis project using deep learning techniques to determine population density.</li>
-                    <li>Analyzed daytime and nighttime satellite images to extract and model urban population distribution patterns using Convolution Neural Networks(CNN).</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+      </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:vibhu.dixit02@gmail.com">vibhu.dixit02@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/vibhu-dixit30/" target="_blank">vibhu-dixit30</a></p>
-        <p>GitHub: <a href="https://github.com/vibhu-dixit" target="_blank">vibhu-dixit</a></p>
-    </section>
-    <script src="script.js"></script>
-</body>
+      <!-- ===== About Section ===== -->
+      <section id="about" class="py-24">
+        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+          <p class="leading-relaxed text-slate-700 dark:text-slate-300">
+            I’m a Computer Science grad student at Arizona State University and a hands‑on data&nbsp;&amp;&nbsp;ML engineer. Recent stints include building cloud‑scale data pipelines at Alcon, training vision models in a deep‑learning lab, and leading the telemetry team for a eATV. I love turning messy data into clean insights and give out real‑world impact using various ML models.
+          </p>
+          <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+            <li>🌎  Currently Based in Tempe, Arizona</li>
+            <li>💼  Ex-intern @ Alcon</li>
+            <li>🎓  M.S. in Computer Science, Arizona State University</li>
+            <li>🛠️  Tools in Focus: Python, TensorFlow, PyTorch</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== Skills & Experience Section ===== -->
+      <section id="skills" class="py-24">
+        <h2 class="text-3xl font-bold text-center mb-12">Experience &amp; Skills</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Experience Card -->
+          <div class="relative bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg p-8 md:p-10">
+            <h3 class="text-xl font-semibold mb-6">Experience</h3>
+            <!-- vertical line -->
+            <span class="absolute left-6 top-10 bottom-10 w-0.5 bg-gradient-to-b from-sky-500/80 to-sky-500/0"></span>
+            <div class="space-y-12 pl-12">
+              <!-- Item -->
+              <div class="relative group">
+                <span class="absolute -left-3.5 top-1 w-3.5 h-3.5 rounded-full border-2 border-white dark:border-slate-900 bg-sky-500 group-hover:scale-110 transition"></span>
+                <h4 class="font-semibold">Data Engineer Intern @ Alcon</h4>
+                <time class="block text-sm text-slate-500 dark:text-slate-400 mb-1">Feb 2024 – Aug 2024</time>
+                <p class="text-slate-700 dark:text-slate-300">Developed a full-stack Flask application and orchestrated ETL pipelines on AWS, processing over 2TB of data, increasing operational visibility by 40% and reducing project development cycle time by 43%.</p>
+              </div>
+
+              <div class="relative group">
+                <span class="absolute -left-3.5 top-1 w-3.5 h-3.5 rounded-full border-2 border-white dark:border-slate-900 bg-sky-500 group-hover:scale-110 transition"></span>
+                <h4 class="font-semibold">Deep Learning Intern @ Bhargava Infotech Solutions</h4>
+                <time class="block text-sm text-slate-500 dark:text-slate-400 mb-1">Sept 2023 – Nov 2023</time>
+                <p class="text-slate-700 dark:text-slate-300">Prototyped a CNN-based population density model using 9GB of satellite imagery on AWS SageMaker, improving urban planning resource allocation accuracy by 45%.</p>
+              </div>
+
+              <div class="relative group">
+                <span class="absolute -left-3.5 top-1 w-3.5 h-3.5 rounded-full border-2 border-white dark:border-slate-900 bg-sky-500 group-hover:scale-110 transition"></span>
+                <h4 class="font-semibold">Electrical Head @ Team Helios Racing</h4>
+                <time class="block text-sm text-slate-500 dark:text-slate-400 mb-1">May 2021 – June 2024</time>
+                <p class="text-slate-700 dark:text-slate-300">Design, test, and integrate the electrical powertrain into an ATV to compete at BAJA SAE, landing among the top 20 teams.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Card -->
+          <div class="bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg p-8 md:p-10">
+            <h3 class="text-xl font-semibold mb-6">Skills</h3>
+            <div class="space-y-8">
+              <!-- Languages -->
+              <div>
+                <h4 class="font-semibold mb-3 text-slate-700 dark:text-slate-200">Languages</h4>
+                <ul class="flex flex-wrap gap-3">
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">Python</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">SQL</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">C++</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">JavaScript</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">HTML</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">CSS</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">C</li>
+                </ul>
+              </div>
+
+              <!-- Frameworks / Libraries -->
+              <div>
+                <h4 class="font-semibold mb-3 text-slate-700 dark:text-slate-200">Frameworks &amp; Libraries</h4>
+                <ul class="flex flex-wrap gap-3">
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">TensorFlow</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">PyTorch</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">NumPy</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">Pandas</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">Transformers</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">Scikit-Learn</li>
+                </ul>
+              </div>
+
+              <!-- Tools & Platforms -->
+              <div>
+                <h4 class="font-semibold mb-3 text-slate-700 dark:text-slate-200">Tools &amp; Platforms</h4>
+                <ul class="flex flex-wrap gap-3">
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">AWS</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">Docker</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">Git</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">Azure</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">Snowflake</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">ZenML</li>
+                  <li class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 text-sm font-medium">Apache Spark</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Projects Section ===== -->
+      <section id="projects" class="py-24">
+        <h2 class="text-3xl font-bold mb-12 text-center">Highlighted Projects</h2>
+        <!-- 2×2 grid on md+, stacks nicely on mobile -->
+        <div class="grid gap-8 sm:grid-cols-2 xl:grid-cols-2">
+
+          <!-- Card 1 -->
+          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl">
+            <img src="photos+images/vrs.jpg" alt="Project screenshot" class="h-48 w-full object-cover group-hover:scale-105 transition" />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Video Recommendation Systems</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Designed a personalized video suggestion system using deep feature extraction and clustering, achieving 97.2% similarity search accuracy and improving execution speed by 18% through a streamlined pipeline.</p>
+              <div class="flex gap-4 text-sm font-medium">
+                <!-- <a href="#" class="inline-flex items-center gap-1 text-sky-600 hover:underline">Live Demo</a> -->
+                <a href="https://github.com/vibhu-dixit/Video-Recommendation-System" class="inline-flex items-center gap-1 text-slate-500 hover:text-sky-600 hover:underline">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl">
+            <img src="photos+images/openmonitor(2).png" alt="Project screenshot" class="h-48 w-full object-cover group-hover:scale-105 transition" />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">OpenMonitor
+                <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-green-100 text-green-800 dark:bg-green-700/30 dark:text-green-200 whitespace-nowrap">Voxel51&nbsp;Hackathon</span
+              </h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Engineered an AI border-security platform analyzing four 1080p video streams with YOLOv8, achieving 94% recall, reducing manual monitoring by 80%, and issuing real-time alerts within 1.3 seconds, earning Runner-up at the ASU Voxel51 Visual AI Hackathon.</p>
+              <div class="flex gap-4 text-sm font-medium">
+                <!-- <a href="#" class="inline-flex items-center gap-1 text-sky-600 hover:underline">Live Demo</a> -->
+                <a href="https://github.com/vibhu-dixit/OpenMonitor" class="inline-flex items-center gap-1 text-slate-500 hover:text-sky-600 hover:underline">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl">
+            <img src="photos+images/zml.png" alt="Project screenshot" class="h-48 w-full object-cover group-hover:scale-105 transition" />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">End-to-End House Price Prediction with MLOps</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Developed a regression-based ML model with automated ZenML/MLflow pipelines, achieving 92% accuracy, reducing deployment time by 60%, and delivering scalable, production-ready code for cloud deployment.</p>
+              <div class="flex gap-4 text-sm font-medium">
+                <!-- <a href="#" class="inline-flex items-center gap-1 text-sky-600 hover:underline">Live Demo</a> -->
+                <a href="https://github.com/vibhu-dixit/prices-predictor-system" class="inline-flex items-center gap-1 text-slate-500 hover:text-sky-600 hover:underline">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl">
+            <!-- Thumbnail -->
+            <div class="relative cursor-pointer" onclick="openVideo()">
+              <img src="photos+images/doofyimg.jpg" alt="DooFy video thumbnail"
+                   class="h-48 w-full object-cover group-hover:scale-105 transition" />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+            </div>
+          
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">DooFy – Revolutionizing CAPTCHA</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                DooFy enhances CAPTCHA technology by integrating image and drawing-based verification, achieving a 95% bot detection rate while improving user accessibility by 30%.
+              </p>
+              <div class="flex gap-4 text-sm font-medium">
+                <a href="#" class="inline-flex items-center gap-1 text-slate-500 hover:text-sky-600 hover:underline">GitHub</a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Video Overlay (hidden by default) -->
+          <div id="videoOverlay" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden">
+            <div class="relative w-full max-w-3xl">
+              <button onclick="closeVideo()"
+                      class="absolute top-2 right-2 text-white text-2xl">&times;</button>
+              <video src="photos+images/doofy.mp4"
+                     controls autoplay
+                     class="w-full rounded-xl shadow-lg">
+                Sorry, your browser doesn’t support embedded videos.
+              </video>
+            </div>
+          </div>
+          
+          <script>
+            function openVideo() {
+              document.getElementById('videoOverlay').classList.remove('hidden');
+            }
+            function closeVideo() {
+              const overlay = document.getElementById('videoOverlay');
+              const vid = overlay.querySelector('video');
+              vid.pause();
+              overlay.classList.add('hidden');
+            }
+          </script>
+
+        </div>
+        <!-- Link to all projects -->
+        <div class="mt-12 text-center">
+          <a href="https://github.com/vibhu-dixit" class="inline-flex items-center gap-2 font-medium text-sky-600 hover:underline">
+            View the full project archive
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L21 10.5m0 0l-3.75 3.75M21 10.5H3" />
+            </svg>
+          </a>
+        </div>
+      </section>
+      <!-- ===== Blog Section ===== -->
+      <!-- <section id="blog" class="py-24">
+        <h2 class="text-3xl font-bold mb-12 text-center">Latest Posts</h2>
+        <div class="space-y-8">
+          <article class="group">
+            <h3 class="text-2xl font-semibold mb-1 group-hover:text-sky-500 transition"><a href="#">Post Title One</a></h3>
+            <time datetime="2025-04-20" class="block text-sm text-slate-500 dark:text-slate-400 mb-2">April 20, 2025</time>
+            <p class="text-slate-700 dark:text-slate-300 max-w-3xl">A quick excerpt of the blog post so readers know what it's about and can decide to click through.</p>
+          </article>
+        </div>
+      </section> -->
+
+      <!-- ===== Contact Section ===== -->
+      <section id="contact" class="py-24 bg-slate-100 dark:bg-slate-800 rounded-xl mt-24">
+        <div class="max-w-xl mx-auto bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl p-8">
+          <h2 class="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
+          <form action="https://formspree.io/f/movdewvn"
+                method="POST"
+                enctype="multipart/form-data"
+                class="space-y-6">
+            <!-- Name & Email -->
+            <div class="grid sm:grid-cols-2 gap-6">
+              <input type="text" name="name" placeholder="Your Name" required
+                     class="w-full p-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 placeholder-slate-400" />
+              <input type="email" name="email" placeholder="Your Email" required
+                     class="w-full p-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 placeholder-slate-400" />
+            </div>
+            <!-- Optional File Upload -->
+            <div>
+              <label class="flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                <span class="text-sm text-slate-600 dark:text-slate-300">Attach a file (optional)</span>
+                <input type="file" name="upload" class="hidden" />
+              </label>
+            </div>
+            <!-- Message -->
+            <div>
+              <textarea name="message" rows="5" placeholder="Your message" required
+                        class="w-full p-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 placeholder-slate-400 resize-none h-40"></textarea>
+            </div>
+            <!-- Submit -->
+            <button type="submit"
+                    class="w-full py-3 rounded-lg bg-sky-500 text-white font-medium hover:bg-sky-600 transition">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+      
+
+    <!-- ===== Footer ===== -->
+    <footer class="py-8 text-center text-sm text-slate-500 dark:text-slate-400">
+      <p>© <span id="year"></span> Vibhu Dixit. All rights reserved.</p>
+      <div class="flex justify-center gap-4 mt-4">
+        <!-- GitHub -->
+        <a href="https://github.com/vibhu-dixit" class="hover:text-sky-500" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd" d="M12 0.297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.087-.744.083-.729.083-.729 1.205.085 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.776.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.47-2.382 1.236-3.22-.124-.303-.536-1.527.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.553 3.296-1.23 3.296-1.23.654 1.649.242 2.873.118 3.176.77.838 1.235 1.91 1.235 3.22 0 4.61-2.807 5.624-5.479 5.921.43.371.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .321.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/vibhu-dixit30" class="hover:text-sky-500" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path d="M4.98 3.5C3.35 3.5 2 4.85 2 6.48c0 1.62 1.35 2.97 2.98 2.97h.03c1.63 0 2.98-1.35 2.98-2.97C7.99 4.85 6.64 3.5 4.98 3.5zM2.4 21.6h5.1V9.02H2.4V21.6zM9.3 9.02v12.58h5.1v-6.27c0-3.34 4.35-3.61 4.35 0v6.27H24V14.4c0-7.22-7.78-6.95-9.3-3.4V9.02H9.3z" />
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+       // Remove preloader after triangle draws (2s) + fade
+       setTimeout(() => {
+        const pre = document.getElementById('preloader');
+        pre.classList.add('opacity-0');
+        setTimeout(() => pre.remove(), 500);
+      }, 1000);
+      // Current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
