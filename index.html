@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
+    <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vibhu Dixit's Portfolio</title>
@@ -22,19 +25,30 @@
         color: rgb(241 245 249);
       }
       #triangle-loader path {
-        fill: none;
-        stroke: rgb(var(--color-brand));
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        /* Use full perimeter length */
-        stroke-dasharray: 70;
-        stroke-dashoffset: 70;
-        animation: draw-triangle 1s ease-in-out forwards;
-      }
-      @keyframes draw-triangle {
-        to { stroke-dashoffset: 0; }
-      }
+  fill: none;
+  stroke: rgb(var(--color-brand));
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 2, 6;           /* dotted line effect */
+  stroke-dashoffset: 100;           /* start fully offset */
+  animation:
+    draw-dots 1s linear forwards, /* animate the dots */
+    solidify-stroke 0.5s ease forwards 1s; /* then switch to solid */
+}
+
+@keyframes draw-dots {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes solidify-stroke {
+  to {
+    stroke-dasharray: 0; /* solid stroke */
+  }
+}
+
     </style>
   </head>
   <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
@@ -103,7 +117,7 @@
       </section>
 
       <!-- ===== About Section ===== -->
-      <section id="about" class="py-24">
+      <section id="about" class="py-24" data-aos="fade-up">
         <h2 class="text-3xl font-bold mb-6">About Me</h2>
         <div class="grid md:grid-cols-2 gap-8 items-start">
           <p class="leading-relaxed text-slate-700 dark:text-slate-300">
@@ -119,7 +133,7 @@
       </section>
 
       <!-- ===== Skills & Experience Section ===== -->
-      <section id="skills" class="py-24">
+      <section id="skills" class="py-24" data-aos="fade-up">
         <h2 class="text-3xl font-bold text-center mb-12">Experience &amp; Skills</h2>
         <div class="grid md:grid-cols-2 gap-8">
           <!-- Experience Card -->
@@ -202,13 +216,13 @@
       </section>
 
       <!-- ===== Projects Section ===== -->
-      <section id="projects" class="py-24">
+      <section id="projects" class="py-24" data-aos="fade-up">
         <h2 class="text-3xl font-bold mb-12 text-center">Highlighted Projects</h2>
         <!-- 2×2 grid on md+, stacks nicely on mobile -->
         <div class="grid gap-8 sm:grid-cols-2 xl:grid-cols-2">
 
           <!-- Card 1 -->
-          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl">
+          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
             <img src="photos+images/vrs.jpg" alt="Project screenshot" class="h-48 w-full object-cover group-hover:scale-105 transition" />
             <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">Video Recommendation Systems</h3>
@@ -221,7 +235,7 @@
           </article>
 
           <!-- Card 2 -->
-          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl">
+          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
             <img src="photos+images/openmonitor(2).png" alt="Project screenshot" class="h-48 w-full object-cover group-hover:scale-105 transition" />
             <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">OpenMonitor
@@ -236,7 +250,7 @@
           </article>
 
           <!-- Card 3 -->
-          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl">
+          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
             <img src="photos+images/zml.png" alt="Project screenshot" class="h-48 w-full object-cover group-hover:scale-105 transition" />
             <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">End-to-End House Price Prediction with MLOps</h3>
@@ -249,7 +263,7 @@
           </article>
 
           <!-- Card 4 -->
-          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl">
+          <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl" data-aos="fade-up" data-aos-delay="400">
             <!-- Thumbnail -->
             <div class="relative cursor-pointer" onclick="openVideo()">
               <img src="photos+images/doofyimg.jpg" alt="DooFy video thumbnail"
@@ -386,9 +400,18 @@
         const pre = document.getElementById('preloader');
         pre.classList.add('opacity-0');
         setTimeout(() => pre.remove(), 500);
-      }, 1000);
+      }, 1500);
       // Current year
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+    <!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,  // animation duration in ms
+    once: true      // animate only once when scrolling down
+  });
+</script>
+
   </body>
 </html>
