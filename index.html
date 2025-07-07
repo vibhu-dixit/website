@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <!-- AOS CSS -->
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vibhu Dixit's Portfolio</title>
-    <!-- Tailwind CSS via CDN (for quick start). For production, install and compile locally. -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Optional: Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --color-brand: 56 189 248; /* sky-500 */
+        --color-brand: 56 189 248; 
       }
       body {
         font-family: 'Inter', sans-serif;
@@ -30,11 +27,11 @@
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 2, 6;           /* dotted line effect */
-  stroke-dashoffset: 100;           /* start fully offset */
+  stroke-dasharray: 2, 6;        
+  stroke-dashoffset: 100;       
   animation:
-    draw-dots 1s linear forwards, /* animate the dots */
-    solidify-stroke 0.5s ease forwards 1s; /* then switch to solid */
+    draw-dots 1s linear forwards,
+    solidify-stroke 0.5s ease forwards 1s; 
 }
 
 @keyframes draw-dots {
@@ -45,14 +42,14 @@
 
 @keyframes solidify-stroke {
   to {
-    stroke-dasharray: 0; /* solid stroke */
+    stroke-dasharray: 0;
   }
 }
 
     </style>
   </head>
   <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
-    <!-- Preloader Overlay -->
+    
     <div id="preloader" class="fixed inset-0 bg-slate-900 flex items-center justify-center z-50 transition-opacity duration-500">
       <svg id="triangle-loader" width="60" height="52" viewBox="0 0 24 20">
         <path d="M12 2 L22 18 L2 18 Z" />
@@ -66,10 +63,10 @@
           <a href="#about" class="hover:text-sky-500">About</a>
           <a href="#skills" class="hover:text-sky-500">Skills</a>
           <a href="#projects" class="hover:text-sky-500">Projects</a>
-          <!-- <a href="#blog" class="hover:text-sky-500">Blog</a> -->
+          
           <a href="#contact" class="hover:text-sky-500">Contact</a>
         </nav>
-        <!-- Mobile menu button -->
+        
         <button id="menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Open Menu">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -82,7 +79,7 @@
           <a href="#about" class="hover:text-sky-500">About</a>
           <a href="#skills" class="hover:text-sky-500">Skills</a>
           <a href="#projects" class="hover:text-sky-500">Projects</a>
-          <!-- <a href="#blog" class="hover:text-sky-500">Blog</a> -->
+          
           <a href="#contact" class="hover:text-sky-500">Contact</a>
         </nav>
       </div>
@@ -107,7 +104,7 @@
           <a href="#contact" class="px-6 py-3 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Get in touch</a>
           <a href="Vibhu Dixit's Resume.pdf" download class="px-6 py-3 rounded border border-sky-500 text-sky-600 hover:bg-sky-50 dark:hover:bg-sky-800 transition flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <!-- Download Icon -->
+              
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M7 10l5 5 5-5M12 15V4" />
             </svg>
@@ -136,13 +133,13 @@
       <section id="skills" class="py-24" data-aos="fade-up">
         <h2 class="text-3xl font-bold text-center mb-12">Experience &amp; Skills</h2>
         <div class="grid md:grid-cols-2 gap-8">
-          <!-- Experience Card -->
+          
           <div class="relative bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg p-8 md:p-10">
             <h3 class="text-xl font-semibold mb-6">Experience</h3>
-            <!-- vertical line -->
+            
             <span class="absolute left-6 top-10 bottom-10 w-0.5 bg-gradient-to-b from-sky-500/80 to-sky-500/0"></span>
             <div class="space-y-12 pl-12">
-              <!-- Item -->
+              
               <div class="relative group">
                 <span class="absolute -left-3.5 top-1 w-3.5 h-3.5 rounded-full border-2 border-white dark:border-slate-900 bg-sky-500 group-hover:scale-110 transition"></span>
                 <h4 class="font-semibold">Data Engineer Intern @ Alcon</h4>
@@ -218,8 +215,25 @@
       <!-- ===== Projects Section ===== -->
       <section id="projects" class="py-24" data-aos="fade-up">
         <h2 class="text-3xl font-bold mb-12 text-center">Highlighted Projects</h2>
-        <!-- 2×2 grid on md+, stacks nicely on mobile -->
+        
         <div class="grid gap-8 sm:grid-cols-2 xl:grid-cols-2">
+          
+          <article class="group relative bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+            <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-sky-500 text-white text-xs font-semibold uppercase tracking-wider">
+              Python Package
+            </span>
+            <img src="photos+images/zeroELT.png" alt="zeroetl Python Package logo/illustration" class="h-48 w-full object-cover group-hover:scale-105 transition" />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">zeroetl - an ELT pipeline for Apache Iceberg</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                A Python package simplifying direct data ingestion into Apache Iceberg tables using PySpark. It streamlines schema creation, data deduplication, snapshot management, and optimization, leveraging Iceberg's capabilities for high data quality and performance.
+              </p>
+              <div class="flex gap-4 text-sm font-medium">
+                <a href="https://pypi.org/project/zeroetl/" class="inline-flex items-center gap-1 text-sky-600 hover:underline" target="_blank" rel="noopener noreferrer">PyPI Link</a>
+                <a href="https://github.com/vibhu-dixit/zeroetl" class="inline-flex items-center gap-1 text-slate-500 hover:text-sky-600 hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article> 
 
           <!-- Card 1 -->
           <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
@@ -228,7 +242,7 @@
               <h3 class="text-xl font-semibold mb-2">Video Recommendation Systems</h3>
               <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Designed a personalized video suggestion system using deep feature extraction and clustering, achieving 97.2% similarity search accuracy and improving execution speed by 18% through a streamlined pipeline.</p>
               <div class="flex gap-4 text-sm font-medium">
-                <!-- <a href="#" class="inline-flex items-center gap-1 text-sky-600 hover:underline">Live Demo</a> -->
+                
                 <a href="https://github.com/vibhu-dixit/Video-Recommendation-System" class="inline-flex items-center gap-1 text-slate-500 hover:text-sky-600 hover:underline">GitHub</a>
               </div>
             </div>
@@ -239,11 +253,11 @@
             <img src="photos+images/openmonitor(2).png" alt="Project screenshot" class="h-48 w-full object-cover group-hover:scale-105 transition" />
             <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">OpenMonitor
-                <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-green-100 text-green-800 dark:bg-green-700/30 dark:text-green-200 whitespace-nowrap">Voxel51&nbsp;Hackathon</span
+                <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-green-100 text-green-800 dark:bg-green-700/30 dark:text-green-200 whitespace-nowrap">Voxel51&nbsp;Hackathon</span>
               </h3>
               <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Engineered an AI border-security platform analyzing four 1080p video streams with YOLOv8, achieving 94% recall, reducing manual monitoring by 80%, and issuing real-time alerts within 1.3 seconds, earning Runner-up at the ASU Voxel51 Visual AI Hackathon.</p>
               <div class="flex gap-4 text-sm font-medium">
-                <!-- <a href="#" class="inline-flex items-center gap-1 text-sky-600 hover:underline">Live Demo</a> -->
+                
                 <a href="https://github.com/vibhu-dixit/OpenMonitor" class="inline-flex items-center gap-1 text-slate-500 hover:text-sky-600 hover:underline">GitHub</a>
               </div>
             </div>
@@ -256,7 +270,7 @@
               <h3 class="text-xl font-semibold mb-2">End-to-End House Price Prediction with MLOps</h3>
               <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Developed a regression-based ML model with automated ZenML/MLflow pipelines, achieving 92% accuracy, reducing deployment time by 60%, and delivering scalable, production-ready code for cloud deployment.</p>
               <div class="flex gap-4 text-sm font-medium">
-                <!-- <a href="#" class="inline-flex items-center gap-1 text-sky-600 hover:underline">Live Demo</a> -->
+                
                 <a href="https://github.com/vibhu-dixit/prices-predictor-system" class="inline-flex items-center gap-1 text-slate-500 hover:text-sky-600 hover:underline">GitHub</a>
               </div>
             </div>
@@ -264,7 +278,6 @@
 
           <!-- Card 4 -->
           <article class="group bg-white/90 dark:bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden transition hover:shadow-xl" data-aos="fade-up" data-aos-delay="400">
-            <!-- Thumbnail -->
             <div class="relative cursor-pointer" onclick="openVideo()">
               <img src="photos+images/doofyimg.jpg" alt="DooFy video thumbnail"
                    class="h-48 w-full object-cover group-hover:scale-105 transition" />
@@ -322,17 +335,6 @@
           </a>
         </div>
       </section>
-      <!-- ===== Blog Section ===== -->
-      <!-- <section id="blog" class="py-24">
-        <h2 class="text-3xl font-bold mb-12 text-center">Latest Posts</h2>
-        <div class="space-y-8">
-          <article class="group">
-            <h3 class="text-2xl font-semibold mb-1 group-hover:text-sky-500 transition"><a href="#">Post Title One</a></h3>
-            <time datetime="2025-04-20" class="block text-sm text-slate-500 dark:text-slate-400 mb-2">April 20, 2025</time>
-            <p class="text-slate-700 dark:text-slate-300 max-w-3xl">A quick excerpt of the blog post so readers know what it's about and can decide to click through.</p>
-          </article>
-        </div>
-      </section> -->
 
       <!-- ===== Contact Section ===== -->
       <section id="contact" class="py-24 bg-slate-100 dark:bg-slate-800 rounded-xl mt-24">
@@ -349,7 +351,6 @@
               <input type="email" name="email" placeholder="Your Email" required
                      class="w-full p-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 placeholder-slate-400" />
             </div>
-            <!-- Optional File Upload -->
             <div>
               <label class="flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -360,12 +361,10 @@
                 <input type="file" name="upload" class="hidden" />
               </label>
             </div>
-            <!-- Message -->
             <div>
               <textarea name="message" rows="5" placeholder="Your message" required
                         class="w-full p-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 placeholder-slate-400 resize-none h-40"></textarea>
             </div>
-            <!-- Submit -->
             <button type="submit"
                     class="w-full py-3 rounded-lg bg-sky-500 text-white font-medium hover:bg-sky-600 transition">
               Send Message
@@ -379,13 +378,13 @@
     <footer class="py-8 text-center text-sm text-slate-500 dark:text-slate-400">
       <p>© <span id="year"></span> Vibhu Dixit. All rights reserved.</p>
       <div class="flex justify-center gap-4 mt-4">
-        <!-- GitHub -->
+       
         <a href="https://github.com/vibhu-dixit" class="hover:text-sky-500" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path fill-rule="evenodd" d="M12 0.297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.087-.744.083-.729.083-.729 1.205.085 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.776.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.47-2.382 1.236-3.22-.124-.303-.536-1.527.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.553 3.296-1.23 3.296-1.23.654 1.649.242 2.873.118 3.176.77.838 1.235 1.91 1.235 3.22 0 4.61-2.807 5.624-5.479 5.921.43.371.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .321.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z" clip-rule="evenodd" />
           </svg>
         </a>
-        <!-- LinkedIn -->
+       
         <a href="https://linkedin.com/in/vibhu-dixit30" class="hover:text-sky-500" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path d="M4.98 3.5C3.35 3.5 2 4.85 2 6.48c0 1.62 1.35 2.97 2.98 2.97h.03c1.63 0 2.98-1.35 2.98-2.97C7.99 4.85 6.64 3.5 4.98 3.5zM2.4 21.6h5.1V9.02H2.4V21.6zM9.3 9.02v12.58h5.1v-6.27c0-3.34 4.35-3.61 4.35 0v6.27H24V14.4c0-7.22-7.78-6.95-9.3-3.4V9.02H9.3z" />
@@ -395,21 +394,21 @@
     </footer>
 
     <script>
-       // Remove preloader after triangle draws (2s) + fade
+      
        setTimeout(() => {
         const pre = document.getElementById('preloader');
         pre.classList.add('opacity-0');
         setTimeout(() => pre.remove(), 500);
       }, 1500);
-      // Current year
+     
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-    <!-- AOS JS -->
+ 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({
-    duration: 800,  // animation duration in ms
-    once: true      // animate only once when scrolling down
+    duration: 800, 
+    once: true     
   });
 </script>
 
