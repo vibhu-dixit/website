@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
   <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <link rel="icon" href="photos+images/icon.png" type="image/png" />
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
@@ -11,68 +13,84 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --color-brand: 56 189 248; 
-      }
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      .dark body {
-        background-color: rgb(15 23 42);
-        color: rgb(241 245 249);
-      }
-      #triangle-loader path {
-  fill: none;
-  stroke: rgb(var(--color-brand));
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 2, 6;        
-  stroke-dashoffset: 100;       
-  animation:
-    draw-dots 1s linear forwards,
-    solidify-stroke 0.5s ease forwards 1s; 
-}
-
-@keyframes draw-dots {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes solidify-stroke {
-  to {
-    stroke-dasharray: 0;
-  }
-}
-
-    </style>
+  <link rel="stylesheet" href="style.css" />
   </head>
   <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+    <!-- Fixed Social Icons -->
+    <div class="fixed left-0 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-3 flex flex-col items-center gap-6">
+        <a href="https://github.com/vibhu-dixit" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-sky-500">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+            <path fill-rule="evenodd" d="M12 0.297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.087-.744.083-.729.083-.729 1.205.085 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.776.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.47-2.382 1.236-3.22-.124-.303-.536-1.527.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.553 3.296-1.23 3.296-1.23.654 1.649.242 2.873.118 3.176.77.838 1.235 1.91 1.235 3.22 0 4.61-2.807 5.624-5.479 5.921.43.371.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .321.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/vibhu-dixit30" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-sky-500">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+            <path d="M4.98 3.5C3.35 3.5 2 4.85 2 6.48c0 1.62 1.35 2.97 2.98 2.97h.03c1.63 0 2.98-1.35 2.98-2.97C7.99 4.85 6.64 3.5 4.98 3.5zM2.4 21.6h5.1V9.02H2.4V21.6zM9.3 9.02v12.58h5.1v-6.27c0-3.34 4.35-3.61 4.35 0v6.27H24V14.4c0-7.22-7.78-6.95-9.3-3.4V9.02H9.3z" />
+          </svg>
+        </a>
+      </div>
+    </div>
     
     <div id="preloader" class="fixed inset-0 bg-slate-900 flex items-center justify-center z-50 transition-opacity duration-500">
       <svg id="triangle-loader" width="60" height="52" viewBox="0 0 24 20">
-        <path d="M12 2 L22 18 L2 18 Z" />
+        <path d="M12 2 L22 18 L2 18 L12 3 Z" stroke="#65c0e7" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="60" stroke-dashoffset="60" />
       </svg>
     </div>
     <!-- ===== Header / Navigation ===== -->
     <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-slate-900/60 shadow-sm">
       <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-        <a href="#" class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Vibhu<span class="text-sky-500">Dixit</span></a>
+  <a href="#" class="text-lg font-bold tracking-tight header-brand">Vibhu<span class="text-sky-500">Dixit</span></a>
         <nav class="hidden md:flex gap-8 text-sm font-medium">
           <a href="#about" class="hover:text-sky-500">About</a>
           <a href="#skills" class="hover:text-sky-500">Skills</a>
           <a href="#projects" class="hover:text-sky-500">Projects</a>
-          
           <a href="#contact" class="hover:text-sky-500">Contact</a>
         </nav>
-        
-        <button id="menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Open Menu">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
+        <div class="flex items-center gap-2">
+          <div class="theme-toggle-container">
+            <div id="background"></div>
+            <div id="day"></div>
+            <div id="night"></div>
+            <svg version="1.1" id="darkmode" class="theme-toggle-svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+              width="80px" height="38px" viewBox="0 0 369 171.667" xml:space="preserve">
+              <g>
+                <polygon class="star" id="star-1" fill="#A2B5BF" points="166.253,132.982 164.364,135.676 160.983,136.488 163.196,138.965 162.996,142.16 166.253,140.998 169.509,142.16 169.309,138.965 171.522,136.488 168.142,135.676"/>
+                <polygon class="star" id="star-2" fill="#A2B5BF" points="175.522,44.243 172.684,48.29 167.603,49.51 170.929,53.233 170.628,58.035 175.522,56.288 180.417,58.035 180.116,53.233 183.442,49.51 178.361,48.29"/>
+                <polygon class="star" id="star-3" fill="#A2B5BF" points="208.22,91.845 206.083,94.891 202.259,95.81 204.763,98.61 204.535,102.226 208.22,100.911 211.903,102.226 211.677,98.61 214.181,95.81 210.356,94.891"/>
+                <polygon class="star" id="star-4" fill="#A2B5BF" points="252.545,39.052 250.409,42.098 246.585,43.017 249.089,45.819 248.86,49.433 252.545,48.118 256.229,49.433 256.002,45.819 258.506,43.017 254.682,42.098"/>
+                <polygon class="star" id="star-5" fill="#A2B5BF" points="280.151,84.949 282.749,88.997 287.401,90.217 284.355,93.94 284.632,98.742 280.151,96.995 275.669,98.742 275.946,93.94 272.899,90.217 277.552,88.997"/>
+                <polygon class="star" id="star-6" fill="#A2B5BF" points="249.791,124.466 246.668,128.919 241.076,130.261 244.737,134.356 244.405,139.64 249.791,137.718 255.178,139.64 254.845,134.356 258.506,130.261 252.914,128.919"/>
+                <g id="moon">
+                  <circle fill="#CAD9DD" cx="255.662" cy="86.825" r="62.713"/>
+                  <circle fill="#A2B5BF" cx="262.446" cy="126.115" r="14.346"/>
+                  <circle fill="#A2B5BF" cx="239.621" cy="65.064" r="9.908"/>
+                  <circle fill="#A2B5BF" cx="292.418" cy="64.686" r="7.339"/>
+                  <circle fill="#A2B5BF" cx="285.796" cy="108.111" r="3.48"/>
+                  <circle fill="#A2B5BF" cx="222.605" cy="77.949" r="4.441"/>
+                  <circle fill="#A2B5BF" cx="304.291" cy="98.701" r="4.441"/>
+                  <circle fill="#A2B5BF" cx="242.372" cy="138.547" r="2.751"/>
+                  <circle fill="#A2B5BF" cx="238.652" cy="40.059" r="2.751"/>
+                  <circle fill="#A2B5BF" cx="252.921" cy="44.149" r="5.33"/>
+                  <circle fill="#A2B5BF" cx="258.251" cy="81.17" r="4.195"/>
+                  <circle fill="#A2B5BF" cx="306.504" cy="57.724" r="2.751"/>
+                  <circle fill="#A2B5BF" cx="207.412" cy="62.199" r="2.751"/>
+                  <circle fill="#A2B5BF" cx="214.279" cy="103.596" r="2.751"/>
+                </g>
+                <g id="sun">
+                  <circle fill="#F4E962" cx="255.661" cy="86.825" r="62.713"/>
+                  <circle fill="#F9C941" cx="255.661" cy="86.825" r="64.153"/>
+                </g>
+                <path id="cloud" fill="#ECF0F1" stroke="#CAD4D8" stroke-width="6" stroke-miterlimit="10" d="M153.269,109.614h2.813c-1.348-2.84-2.124-6.003-2.124-9.354c0-12.083,9.794-21.878,21.877-21.878c7.872,0,14.751,4.172,18.605,10.411c2.121-1.246,4.583-1.974,7.221-1.974c7.889,0,14.285,6.396,14.285,14.285c0,2.1-0.465,4.087-1.277,5.882h6.354c6.604,0,12.007,5.403,12.007,12.007s-5.403,12.006-12.007,12.006h-25.151H179.48h-26.212c-5.881,0-10.692-4.812-10.692-10.692S147.388,109.614,153.269,109.614z"/>
+              </g>
+            </svg>
+          </div>
+          <button id="menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Open Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
       </div>
       <!-- Mobile menu panel -->
       <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur">
@@ -114,7 +132,7 @@
       </div>
         </div>
         <div class="w-full mt-2 text-center">
-          <p class="text-sm italic text-slate-500 dark:text-slate-400">For a tailored résumé specific to ML or DE role, please feel free to reach out via email.</p>
+          <p class="text-sm italic text-slate-500 dark:text-slate-400"> Please feel free to reach out via email, for the most recent resume.</p>
         </div>
   </section>
 
@@ -126,8 +144,9 @@
             I’m a Computer Science grad student at Arizona State University and a hands‑on data&nbsp;&amp;&nbsp;ML engineer. Recent stints include building cloud‑scale data pipelines at Alcon, training vision models in a deep‑learning lab, and leading the telemetry team for a eATV. I love turning messy data into clean insights and give out real‑world impact using various ML models.
           </p>
           <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+            <li>👨‍💻  Working as Research volunteer at CoRAL Lab, ASU</li>
             <li>🌎  Currently Based in Tempe, Arizona</li>
-            <li>💼  Ex-intern @ Alcon</li>
+            <li>💼  Ex-Intern @ Alcon</li>
             <li>🎓  M.S. in Computer Science, Arizona State University</li>
             <li>🛠️  Tools in Focus: Python, TensorFlow, PyTorch</li>
           </ul>
@@ -145,6 +164,12 @@
             <span class="absolute left-6 top-10 bottom-10 w-0.5 bg-gradient-to-b from-sky-500/80 to-sky-500/0"></span>
             <div class="space-y-12 pl-12">
               
+              <div class="relative group">
+                <span class="absolute -left-3.5 top-1 w-3.5 h-3.5 rounded-full border-2 border-white dark:border-slate-900 bg-sky-500 group-hover:scale-110 transition"></span>
+                <h4 class="font-semibold">Research Assistant @ CoRAL Lab, ASU</h4>
+                <time class="block text-sm text-slate-500 dark:text-slate-400 mb-1">May 2025 – Present</time>
+                <p class="text-slate-700 dark:text-slate-300">Work on text-to-SQL generation for Temporal reasoning of LLMs. Demonstrate a few-shot CoT apporach to increase retrieval accuracy from 40% to 82%.</p>
+              </div>
               <div class="relative group">
                 <span class="absolute -left-3.5 top-1 w-3.5 h-3.5 rounded-full border-2 border-white dark:border-slate-900 bg-sky-500 group-hover:scale-110 transition"></span>
                 <h4 class="font-semibold">Data Engineer Intern @ Alcon</h4>
@@ -399,13 +424,20 @@
     </footer>
 
     <script>
-      
-       setTimeout(() => {
+      window.addEventListener('DOMContentLoaded', function() {
+        document.documentElement.classList.add('dark');
+        gsap.set("#sun", {x: -157, opacity: 0});
+        gsap.set("#cloud", {opacity: 0});
+        gsap.set("#moon", {x: -157, rotate: -360, opacity: 1});
+        gsap.set(".star", {opacity: 1});
+        $("#night").css({"pointer-events": "all"});
+        $("#day").css({"pointer-events": "none"});
+      });
+      setTimeout(() => {
         const pre = document.getElementById('preloader');
         pre.classList.add('opacity-0');
         setTimeout(() => pre.remove(), 500);
       }, 1500);
-     
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
  
@@ -415,6 +447,66 @@
     duration: 800, 
     once: true     
   });
+</script>
+<script>
+  gsap.set("#moon, .star", {opacity: 0});
+  gsap.set("#sun, #cloud, #moon", {x: 15});
+  gsap.set(".star", {x: 35, y: -5});
+  $("#day").click(function(){
+    gsap.to("#sun", 1, {x: -157, opacity: 0, ease: "power1.inOut"});
+    gsap.to("#cloud", .5, {opacity: 0, ease: "power1.inOut"});
+    gsap.to("#moon", 1, {x: -157, rotate: -360, transformOrigin: "center", opacity: 1, ease: "power1.inOut"});
+    gsap.to(".star", .5, {opacity: 1, ease: "power1.inOut"});
+    gsap.to("#night", 1, {background: "#224f6d", borderColor: "#cad4d8", ease: "power1.inOut"});
+    gsap.to("#background", 1, {background: "#0d1f2b", ease: "power1.inOut"});
+    $(this).css({"pointer-events": "none"});
+    document.documentElement.classList.add('dark');
+    setTimeout(function(){
+      $("#night").css({"pointer-events": "all"})
+    }, 1000);
+  });
+  $("#night").click(function(){
+    gsap.to("#sun", 1, {x: 15, opacity: 1, ease: "power1.inOut"});
+    gsap.to("#cloud", 1, {opacity: 1, ease: "power1.inOut"});
+    gsap.to("#moon", 1, {opacity: 0, x: 35, rotate: 360, transformOrigin: "center", ease: "power1.inOut"});
+    gsap.to(".star", 1, {opacity: 0, ease: "power1.inOut"});
+    gsap.to("#night", 1, {background: "#9cd6ef", borderColor: "#65c0e7", ease: "power1.inOut"});
+    gsap.to("#background", 1, {background: "#d3edf8", ease: "power1.inOut"});
+    $(this).css({"pointer-events": "none"});
+    document.documentElement.classList.remove('dark');
+    setTimeout(function(){
+      $("#day").css({"pointer-events": "all"})
+    }, 1000);
+  });
+</script>
+</script>
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const iconSun = document.getElementById('icon-sun');
+  const iconMoon = document.getElementById('icon-moon');
+  function updateThemeIcon() {
+    const html = document.documentElement;
+    if (html.classList.contains('dark')) {
+      iconSun.classList.remove('inline');
+      iconSun.classList.add('hidden');
+      iconMoon.classList.remove('hidden');
+      iconMoon.classList.add('inline');
+    } else {
+      iconMoon.classList.remove('inline');
+      iconMoon.classList.add('hidden');
+      iconSun.classList.remove('hidden');
+      iconSun.classList.add('inline');
+    }
+  }
+  themeToggle.addEventListener('click', function() {
+    const html = document.documentElement;
+    html.classList.toggle('dark');
+    updateThemeIcon();
+  });
+  window.addEventListener('DOMContentLoaded', function() {
+    updateThemeIcon();
+  });
+</script>
 </script>
 
   </body>
