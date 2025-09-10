@@ -1,3 +1,19 @@
+/* During theme transition, make all backgrounds transparent for smooth gradient effect */
+.theme-transitioning,
+.theme-transitioning body,
+.theme-transitioning header,
+.theme-transitioning main,
+.theme-transitioning section,
+.theme-transitioning .card,
+.theme-transitioning .bg-card,
+.theme-transitioning .bg-white,
+.theme-transitioning .bg-slate-100,
+.theme-transitioning .bg-white\/90,
+.theme-transitioning .bg-white\/80 {
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: background 1s, color 1s;
+}
 .header-brand {
   color: #111 !important;
   transition: color 1s;
@@ -71,7 +87,7 @@
 }
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg-main) !important;
+  background: linear-gradient(to bottom, #f8fafc 0%, #e0e7ef 100%) !important;
   color: var(--text-main) !important;
   transition: background-color 1s, color 1s;
 }
@@ -80,20 +96,20 @@ header {
   transition: background-color 1s, color 1s;
 }
 main, section, .card, .bg-card {
-  background-color: var(--bg-card) !important;
+  background-color: rgba(255,255,255,0.85) !important;
   color: var(--text-main) !important;
   border-color: var(--border-main);
   transition: background-color 1s, color 1s;
 }
 .dark body {
-  background-color: #1a2332 !important;
+  background: linear-gradient(to bottom, #1a2332 0%, #22304a 100%) !important;
   color: rgb(241 245 249) !important;
 }
 .dark header {
   background-color: #1a2332 !important;
 }
 .dark main, .dark section, .dark .card, .dark .bg-card {
-  background-color: #1a2332 !important;
+  background-color: rgba(26,35,50,0.85) !important;
   color: rgb(241 245 249) !important;
   border-color: rgb(51 65 85);
 }
