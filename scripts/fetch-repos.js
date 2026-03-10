@@ -4,9 +4,11 @@
  * Run before build (e.g. in CI). Set GITHUB_USER and optionally GITHUB_TOKEN.
  */
 
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const GITHUB_USER = process.env.GITHUB_USER || "vibhu-dixit";
 const TOKEN = process.env.GITHUB_TOKEN || process.env.TOKEN;
 const OUT_PATH = path.join(__dirname, "..", "public", "github-repos.json");
