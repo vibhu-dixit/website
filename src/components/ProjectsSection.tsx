@@ -162,11 +162,11 @@ const ProjectsSection = () => {
                   )}
                 </div>
               </div>
-              <p className="font-body text-xs text-muted-foreground mb-4">{project.subtitle}</p>
+              <p className="font-body text-lg font-medium text-muted-foreground leading-relaxed mb-4">{project.subtitle}</p>
 
-              <ul className="space-y-2 mb-4 flex-1">
+              <ul className="space-y-3 mb-4 flex-1">
                 {project.points.map((p, j) => (
-                  <li key={j} className="flex items-start gap-2 text-xs text-muted-foreground font-body">
+                  <li key={j} className="flex items-start gap-2 font-body text-lg font-medium text-muted-foreground leading-relaxed">
                     <span className="text-primary mt-1 text-[6px]">▸</span>
                     {p}
                   </li>

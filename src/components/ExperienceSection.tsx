@@ -65,13 +65,13 @@ const ExperienceSection = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
                 <div>
                   <h3 className="font-display text-sm tracking-wider text-primary">{exp.role}</h3>
-                  <p className="font-body text-base text-secondary-foreground">{exp.company}</p>
+                  <p className="font-body text-lg font-medium text-secondary-foreground leading-relaxed">{exp.company}</p>
                 </div>
                 <span className="font-mono text-xs text-muted-foreground mt-1 sm:mt-0">{exp.period}</span>
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {exp.points.map((point, j) => (
-                  <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground font-body">
+                  <li key={j} className="flex items-start gap-3 font-body text-lg font-medium text-muted-foreground leading-relaxed">
                     <span className="text-primary mt-1.5 text-[8px]">▸</span>
                     {point}
                   </li>

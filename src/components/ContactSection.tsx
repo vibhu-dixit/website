@@ -10,7 +10,7 @@ const ContactSection = () => {
           <div className="hud-line w-24 mt-4 mx-auto" />
         </div>
 
-        <p className="font-body text-base text-muted-foreground max-w-md mx-auto mb-10">
+        <p className="font-body text-lg font-medium text-muted-foreground leading-relaxed max-w-md mx-auto mb-10">
           Available for software engineering opportunities. Let's build something remarkable.
         </p>
 

@@ -10,7 +10,7 @@ Personal portfolio and resume site — full-stack AI engineer, MS CS @ ASU. Buil
 
 I'm a **full-stack AI engineer** pursuing an MS in Computer Science at **Arizona State University**, focused on building end-to-end intelligent systems — from scalable cloud backends to LLM-powered applications.
 
-- **Currently** building production systems at **PRIVV** — invoice automation with AWS Textract, high-reliability microservices with 99.9% uptime.
+- **Currently** building production features at **PRIVV** — invoice automation , and AI companion, having high-reliability microservices with 99.9% uptime.
 - **Previously** engineered data pipelines processing 50M+ events/day at **Alcon**.
 - **Focus:** Full-Stack · AI/ML · Cloud · Distributed systems · MLOps.
 

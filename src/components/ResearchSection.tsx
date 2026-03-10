@@ -54,7 +54,7 @@ const ResearchSection = () => {
                   <span className="font-mono text-[10px] text-muted-foreground mt-1 block">{pub.venue}</span>
                 </div>
               </div>
-              <p className="font-body text-sm text-muted-foreground mt-3">{pub.description}</p>
+              <p className="font-body text-lg font-medium text-muted-foreground leading-relaxed mt-3">{pub.description}</p>
             </div>
           ))}
         </div>
