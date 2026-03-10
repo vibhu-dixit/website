@@ -3,8 +3,8 @@
  * Writes public/github-repos.json for the site to consume.
  * Run before build (e.g. in CI). Set GITHUB_USER and optionally GITHUB_TOKEN.
  *
- * Only includes repos updated on or after REPOS_UPDATED_AFTER (YYYY-MM-DD).
- * Defaults to today so only projects you work on from now on appear.
+ * Only includes repos that were created and last updated before REPOS_BEFORE (YYYY-MM-DD).
+ * Default: today — so repos created or updated today are excluded.
  */
 
 import fs from "fs";
@@ -16,10 +16,9 @@ const GITHUB_USER = process.env.GITHUB_USER || "vibhu-dixit";
 const TOKEN = process.env.GITHUB_TOKEN || process.env.TOKEN;
 const OUT_PATH = path.join(__dirname, "..", "public", "github-repos.json");
 
-// Only repos updated on or after this date (YYYY-MM-DD). Default: today.
-const REPOS_UPDATED_AFTER =
-  process.env.REPOS_UPDATED_AFTER ||
-  new Date().toISOString().slice(0, 10);
+// Only repos created and updated before this date (YYYY-MM-DD). Default: today.
+const REPOS_BEFORE =
+  process.env.REPOS_BEFORE || new Date().toISOString().slice(0, 10);
 
 const headers = {
   Accept: "application/vnd.github.v3+json",
@@ -39,7 +38,10 @@ async function fetchRepos() {
     (r) =>
       !r.fork &&
       !r.private &&
-      (r.updated_at && r.updated_at.slice(0, 10) >= REPOS_UPDATED_AFTER)
+      r.updated_at &&
+      r.created_at &&
+      r.updated_at.slice(0, 10) < REPOS_BEFORE &&
+      r.created_at.slice(0, 10) < REPOS_BEFORE
   );
 }
 
@@ -84,7 +86,7 @@ async function fetchReadme(owner, repo) {
 }
 
 async function main() {
-  console.log("Fetching repos for", GITHUB_USER, "(updated on or after", REPOS_UPDATED_AFTER + ")");
+  console.log("Fetching repos for", GITHUB_USER, "(created and updated before", REPOS_BEFORE + ")");
   const repos = await fetchRepos();
   const results = [];
   for (const r of repos) {
