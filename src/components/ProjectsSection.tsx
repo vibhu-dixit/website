@@ -30,6 +30,18 @@ const projects = [
     pypi: "https://pypi.org/project/zeroetl/",
   },
   {
+    title: "BountyHub",
+    subtitle: "Freelancing Meets Bounty Hunting · SunHacks 2026",
+    period: "2026",
+    tech: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
+    tags: ["Full-Stack", "Backend", "Hackathon"],
+    points: [
+      "Web platform blending bounty mechanics with gig work: clients post tasks with rewards, students claim and deliver first-come-first-serve.",
+      "Built for speed and fairness—streamlined flow for claiming and delivering tasks across design, dev, writing, and video.",
+    ],
+    github: "https://github.com/vibhu-dixit/BountyHub_SunHacks-26",
+  },
+  {
     title: "Mavenly",
     subtitle: "LLM-Driven Intelligence Pipeline",
     period: "Sep – Nov 2025",
@@ -39,7 +51,19 @@ const projects = [
       "Built AI-native service automating dataset reasoning with hallucination guardrails.",
       "Designed validation policies improving reliability across 4 risk categories.",
     ],
-    github: "https://github.com/vibhu-dixit",
+    github: "https://github.com/vibhu-dixit/Mavenly",
+  },
+  {
+    title: "LLaMA-2 Optimization",
+    subtitle: "Efficient Inference & Adaptation for Large Language Models",
+    period: "2025",
+    tech: ["Python", "PyTorch", "LoRA", "RoPE", "SwiGLU"],
+    tags: ["AI/ML", "Deep Learning", "Research"],
+    points: [
+      "Implemented LLaMA-2–inspired architecture with RoPE, GMQA, KV caching, SwiGLU, and LoRA; achieved 20% inference speedup vs baseline.",
+      "LoRA-enabled inference with optional quantization; BLEU improvements on translation and reduced hallucinations via top-p sampling.",
+    ],
+    github: "https://github.com/vibhu-dixit/Llama-2",
   },
   {
     title: "OpenMonitor",
@@ -51,7 +75,7 @@ const projects = [
       "Analyzed four 1080p video streams achieving 94% recall.",
       "Reduced manual monitoring by 80% with real-time alerts within 1.3 seconds.",
     ],
-    github: "https://github.com/vibhu-dixit",
+    github: "https://github.com/vibhu-dixit/OpenMonitor",
   },
   {
     title: "Video Recommendation System",
@@ -63,7 +87,7 @@ const projects = [
       "Designed personalized video suggestion system achieving 97.2% similarity accuracy.",
       "Improved execution speed by 18% through a streamlined pipeline.",
     ],
-    github: "https://github.com/vibhu-dixit",
+    github: "https://github.com/vibhu-dixit/Video-Recommendation-System",
   },
   {
     title: "House Price Prediction",
@@ -75,7 +99,7 @@ const projects = [
       "Achieved 92% accuracy with automated ZenML/MLflow pipelines.",
       "Reduced deployment time by 60% with scalable cloud deployment.",
     ],
-    github: "https://github.com/vibhu-dixit",
+    github: "https://github.com/vibhu-dixit/prices-predictor-system",
   },
   {
     title: "DooFy",
@@ -87,7 +111,7 @@ const projects = [
       "Integrated image and drawing-based verification with 95% bot detection rate.",
       "Improved user accessibility by 30% over traditional CAPTCHAs.",
     ],
-    github: "https://github.com/vibhu-dixit",
+    github: "https://github.com/vibhu-dixit/DooFy-CAPTCHA_Revolutionized",
   },
 ];
 
