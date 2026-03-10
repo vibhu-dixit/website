@@ -138,16 +138,17 @@ const ProjectsSection = () => {
     ? projects.filter((p) => p.tags.includes(activeTag))
     : projects;
 
-  useEffect(() => {
-    const base = import.meta.env.BASE_URL || "/";
-    fetch(`${base}github-repos.json`)
-      .then((r) => (r.ok ? r.json() : []))
-      .then((data: GithubRepo[]) => {
-        const other = data.filter((r) => !featuredRepoNames.has(r.name.toLowerCase()));
-        setMoreRepos(other);
-      })
-      .catch(() => setMoreRepos([]));
-  }, []);
+  // TODO: re-enable when fetch-repos output is ready for live
+  // useEffect(() => {
+  //   const base = import.meta.env.BASE_URL || "/";
+  //   fetch(`${base}github-repos.json`)
+  //     .then((r) => (r.ok ? r.json() : []))
+  //     .then((data: GithubRepo[]) => {
+  //       const other = data.filter((r) => !featuredRepoNames.has(r.name.toLowerCase()));
+  //       setMoreRepos(other);
+  //     })
+  //     .catch(() => setMoreRepos([]));
+  // }, []);
 
   return (
     <section id="projects" className="relative z-10 py-24 px-6">
@@ -245,8 +246,8 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        {/* More from GitHub: repos not in the curated list; tags from GitHub topics, tech from README + language */}
-        {moreRepos.length > 0 && (
+        {/* More from GitHub: commented out for now; re-enable when fetch-repos output is ready for live */}
+        {/* {moreRepos.length > 0 && (
           <>
             <div className="mt-16 mb-8">
               <span className="font-mono text-xs tracking-[0.4em] text-muted-foreground">MORE FROM GITHUB</span>
@@ -290,7 +291,7 @@ const ProjectsSection = () => {
               ))}
             </div>
           </>
-        )}
+        )} */}
       </div>
     </section>
   );
