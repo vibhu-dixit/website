@@ -2,6 +2,9 @@
  * Fetches public repos from GitHub and parses each README for tech stack.
  * Writes public/github-repos.json for the site to consume.
  * Run before build (e.g. in CI). Set GITHUB_USER and optionally GITHUB_TOKEN.
+ *
+ * Only includes repos updated on or after REPOS_UPDATED_AFTER (YYYY-MM-DD).
+ * Defaults to today so only projects you work on from now on appear.
  */
 
 import fs from "fs";
@@ -12,6 +15,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const GITHUB_USER = process.env.GITHUB_USER || "vibhu-dixit";
 const TOKEN = process.env.GITHUB_TOKEN || process.env.TOKEN;
 const OUT_PATH = path.join(__dirname, "..", "public", "github-repos.json");
+
+// Only repos updated on or after this date (YYYY-MM-DD). Default: today.
+const REPOS_UPDATED_AFTER =
+  process.env.REPOS_UPDATED_AFTER ||
+  new Date().toISOString().slice(0, 10);
 
 const headers = {
   Accept: "application/vnd.github.v3+json",
@@ -27,7 +35,12 @@ async function fetchJson(url) {
 async function fetchRepos() {
   const url = `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=40&type=owner`;
   const repos = await fetchJson(url);
-  return repos.filter((r) => !r.fork && !r.private);
+  return repos.filter(
+    (r) =>
+      !r.fork &&
+      !r.private &&
+      (r.updated_at && r.updated_at.slice(0, 10) >= REPOS_UPDATED_AFTER)
+  );
 }
 
 /**
@@ -71,7 +84,7 @@ async function fetchReadme(owner, repo) {
 }
 
 async function main() {
-  console.log("Fetching repos for", GITHUB_USER);
+  console.log("Fetching repos for", GITHUB_USER, "(updated on or after", REPOS_UPDATED_AFTER + ")");
   const repos = await fetchRepos();
   const results = [];
   for (const r of repos) {

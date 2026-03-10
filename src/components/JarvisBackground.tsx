@@ -36,12 +36,12 @@ const JarvisBackground = () => {
     const initParticles = () => {
       particles = [];
       for (let i = 0; i < PARTICLE_COUNT; i++) {
-        const baseOpacity = Math.random() * 0.5 + 0.2;
+        const baseOpacity = Math.random() * 0.45 + 0.35;
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
+          vx: (Math.random() - 0.5) * 1,
+          vy: (Math.random() - 0.5) * 1,
           size: Math.random() * 2 + 0.5,
           opacity: baseOpacity,
           baseOpacity,
@@ -145,8 +145,8 @@ const JarvisBackground = () => {
         p.y += p.vy;
 
         // Dampen
-        p.vx *= 0.995;
-        p.vy *= 0.995;
+        p.vx *= 0.998;
+        p.vy *= 0.998;
 
         // Wrap around edges
         if (p.x < 0) p.x = canvas.width;
@@ -154,17 +154,18 @@ const JarvisBackground = () => {
         if (p.y < 0) p.y = canvas.height;
         if (p.y > canvas.height) p.y = 0;
 
-        // Draw particle with glow
+        // Draw particle with glow (slightly brighter)
+        const drawAlpha = Math.min(1, p.opacity * 1.2);
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 200, 255, ${p.opacity})`;
+        ctx.fillStyle = `rgba(0, 200, 255, ${drawAlpha})`;
         ctx.fill();
 
         // Glow ring on brighter particles
         if (p.opacity > 0.5) {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(0, 200, 255, ${(p.opacity - 0.5) * 0.1})`;
+          ctx.fillStyle = `rgba(0, 200, 255, ${(p.opacity - 0.5) * 0.14})`;
           ctx.fill();
         }
       });
