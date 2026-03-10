@@ -1,2 +1,2 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Use LF for all text files (consistent across Windows/macOS/Linux and CI)
+* text=auto eol=lf

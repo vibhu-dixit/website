@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 25% 4%;
+    --foreground: 190 100% 80%;
+
+    --card: 220 20% 8%;
+    --card-foreground: 190 100% 80%;
+
+    --popover: 220 20% 8%;
+    --popover-foreground: 190 100% 80%;
+
+    --primary: 190 100% 50%;
+    --primary-foreground: 220 25% 4%;
+
+    --secondary: 220 20% 12%;
+    --secondary-foreground: 190 100% 70%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 190 30% 50%;
+
+    --accent: 190 100% 40%;
+    --accent-foreground: 220 25% 4%;
+
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 190 60% 20%;
+    --input: 190 60% 20%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.25rem;
+
+    --jarvis-cyan: 190 100% 50%;
+    --jarvis-cyan-dim: 190 80% 30%;
+    --jarvis-blue: 210 100% 50%;
+    --jarvis-glow: 190 100% 60%;
+    --jarvis-dark: 220 25% 4%;
+    --jarvis-panel: 220 20% 8%;
+
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+
+    --glow-sm: 0 0 5px hsl(190 100% 50% / 0.3), 0 0 10px hsl(190 100% 50% / 0.1);
+    --glow-md: 0 0 10px hsl(190 100% 50% / 0.4), 0 0 20px hsl(190 100% 50% / 0.15), 0 0 40px hsl(190 100% 50% / 0.05);
+    --glow-lg: 0 0 15px hsl(190 100% 50% / 0.5), 0 0 30px hsl(190 100% 50% / 0.2), 0 0 60px hsl(190 100% 50% / 0.1);
+
+    --sidebar-background: 220 20% 6%;
+    --sidebar-foreground: 190 100% 80%;
+    --sidebar-primary: 190 100% 50%;
+    --sidebar-primary-foreground: 220 25% 4%;
+    --sidebar-accent: 220 20% 12%;
+    --sidebar-accent-foreground: 190 100% 70%;
+    --sidebar-border: 190 60% 20%;
+    --sidebar-ring: 190 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px hsl(190 100% 50% / 0.6), 0 0 20px hsl(190 100% 50% / 0.3);
+  }
+
+  .text-glow-sm {
+    text-shadow: 0 0 5px hsl(190 100% 50% / 0.4);
+  }
+
+  .border-glow {
+    box-shadow: var(--glow-sm);
+  }
+
+  .border-glow-md {
+    box-shadow: var(--glow-md);
+  }
+
+  .hud-line {
+    background: linear-gradient(90deg, transparent, hsl(190 100% 50% / 0.6), transparent);
+    height: 1px;
+  }
+
+  .hud-corner {
+    position: relative;
+  }
+
+  .hud-corner::before,
+  .hud-corner::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-color: hsl(190 100% 50% / 0.6);
+  }
+
+  .hud-corner::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .hud-corner::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+  }
+
+  .jarvis-panel {
+    background: hsl(220 20% 8% / 0.8);
+    border: 1px solid hsl(190 100% 50% / 0.15);
+    backdrop-filter: blur(10px);
+  }
+
+  .scanline {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(190 100% 50% / 0.03) 2px,
+      hsl(190 100% 50% / 0.03) 4px
+    );
+    pointer-events: none;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  96% { opacity: 0.9; }
+  97% { opacity: 1; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: hsl(190 100% 50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220 25% 4%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(190 100% 50% / 0.3);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(190 100% 50% / 0.5);
+}
