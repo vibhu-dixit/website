@@ -13,7 +13,11 @@ export default defineConfig(({ mode }) => ({
           if (id.includes("node_modules/react/") || id.includes("node_modules/react-dom/")) return "react";
           if (id.includes("node_modules/@radix-ui/")) return "radix";
           if (id.includes("node_modules/react-router")) return "router";
+          if (id.includes("node_modules/@tanstack/react-query")) return "query";
         },
+        chunkFileNames: "assets/[name]-[hash].js",
+        entryFileNames: "assets/[name]-[hash].js",
+        assetFileNames: "assets/[name]-[hash][extname]",
       },
     },
   },

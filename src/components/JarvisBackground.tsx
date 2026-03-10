@@ -217,15 +217,20 @@ const JarvisBackground = () => {
       mouseY = -1000;
     };
 
-    resize();
-    initParticles();
-    animate();
+    // Defer init to next frame to avoid forced reflow (reading dimensions in same frame as DOM commit)
+    const startAnimation = () => {
+      resize();
+      initParticles();
+      animate();
+    };
+    const rafId = requestAnimationFrame(startAnimation);
 
     window.addEventListener("resize", () => { resize(); initParticles(); });
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
+      cancelAnimationFrame(rafId);
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouseMove);
