@@ -43,7 +43,7 @@ const HeroSection = () => {
             VIEW PROJECTS
           </a>
           <a
-            href="/VibhuDixit_Resume.pdf"
+            href={`${import.meta.env.BASE_URL}VibhuDixit_Resume.pdf`}
             download
             className="jarvis-panel px-8 py-3 font-mono text-xs tracking-widest text-primary hover:border-primary/50 hover:border-glow-md transition-all duration-300 hud-corner"
           >
