@@ -115,16 +115,39 @@ const projects = [
   },
 ];
 
-// Derive all unique tags
+// Derive all unique tags and featured repo names (for excluding from "More from GitHub")
 const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
+const featuredRepoNames = new Set(projects.map((p) => (p.github || "").split("/").pop()?.toLowerCase()).filter(Boolean));
+
+interface GithubRepo {
+  name: string;
+  description: string;
+  url: string;
+  language: string | null;
+  topics: string[];
+  tech: string[];
+  updatedAt: string;
+}
 
 const ProjectsSection = () => {
   const { ref, inView } = useInView();
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [moreRepos, setMoreRepos] = useState<GithubRepo[]>([]);
 
   const filtered = activeTag
     ? projects.filter((p) => p.tags.includes(activeTag))
     : projects;
+
+  useEffect(() => {
+    const base = import.meta.env.BASE_URL || "/";
+    fetch(`${base}github-repos.json`)
+      .then((r) => (r.ok ? r.json() : []))
+      .then((data: GithubRepo[]) => {
+        const other = data.filter((r) => !featuredRepoNames.has(r.name.toLowerCase()));
+        setMoreRepos(other);
+      })
+      .catch(() => setMoreRepos([]));
+  }, []);
 
   return (
     <section id="projects" className="relative z-10 py-24 px-6">
@@ -221,6 +244,53 @@ const ProjectsSection = () => {
             </div>
           ))}
         </div>
+
+        {/* More from GitHub: repos not in the curated list; tags from GitHub topics, tech from README + language */}
+        {moreRepos.length > 0 && (
+          <>
+            <div className="mt-16 mb-8">
+              <span className="font-mono text-xs tracking-[0.4em] text-muted-foreground">MORE FROM GITHUB</span>
+              <p className="font-body text-sm text-muted-foreground mt-1">Other repos · tags & tech from README + topics</p>
+              <div className="hud-line w-24 mt-4" />
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {moreRepos.map((repo, i) => (
+                <a
+                  key={repo.name}
+                  href={repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`jarvis-panel p-6 hud-corner group hover:border-primary/30 transition-all duration-700 flex flex-col block ${
+                    inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
+                  style={{ transitionDelay: `${(filtered.length + i) * 50}ms` }}
+                >
+                  <div className="flex items-start justify-between mb-2">
+                    <h3 className="font-display text-sm tracking-wider text-primary">{repo.name}</h3>
+                    <Github className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </div>
+                  <p className="font-body text-lg font-medium text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+                    {repo.description || "No description"}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-2 mt-auto">
+                    {(repo.topics?.length ? repo.topics : []).map((t) => (
+                      <span key={t} className="font-mono text-[10px] px-2 py-0.5 border border-primary/30 text-primary/70">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {(repo.tech?.length ? repo.tech : repo.language ? [repo.language] : []).map((t) => (
+                      <span key={t} className="font-mono text-[10px] px-2 py-0.5 border border-border text-muted-foreground">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

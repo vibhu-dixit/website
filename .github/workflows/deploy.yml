@@ -31,6 +31,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Fetch GitHub repos (README → tech/tags)
+        env:
+          GITHUB_USER: vibhu-dixit
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-repos.js
+
       - name: Build
         run: npm run build
 
