@@ -17,9 +17,35 @@ const useInView = () => {
 
 const projects = [
   {
+  title: "Hotel Booking AI Agent",
+  subtitle: "Multi-Channel AI Concierge for Trip Intent → Hotel Discovery & Booking",
+  period: "April 2026 – may 2026",
+  tech: ["React", "Vite", "TypeScript", "FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "Google Places", "NVIDIA LLM", "Deepgram", "Linq SMS/iMessage", "Booking.com"],
+  tags: ["Full-Stack", "Backend", "AI/ML"],
+  points: [
+    "Built an AI concierge that turns natural language (“I need a room in Sedona next weekend”) into ranked hotels, comparable quotes, and Booking.com prefilled links—with explicit human-in-the-loop approval before any booking step.",
+    "Orchestrated multi-channel trip building on one shared backend: web form + mic upload and Linq SMS/iMessage (text + voice notes via Deepgram) feed the same LLM trip extraction, Google Places discovery, quote scoring, and phase-based SMS workflow (collect → search → reply 1/2/… → payment link).",
+    "Shipped signed Linq webhooks with dedup, threaded multi-turn session state in Postgres, swappable stub/live hotel providers, and a layered FastAPI architecture (routers → application services → infrastructure adapters) with a React (Vite) UI.",
+  ],
+  github: "https://github.com/vibhu-dixit/Hotel-Booking-Agent",
+},
+  {
+  title: "Hiiv",
+  subtitle: "Timed AI Advisory Sessions for Founders",
+  period: " Feb 2026 – Present",
+  tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "FastAPI", "PostgreSQL", "SSE", "OpenAI SDK", "Pydantic", "JWT", "Cloudflare Turnstile", "Vercel", "Render"],
+  tags: ["Full-Stack", "Backend", "AI/ML"],
+  points: [
+    "Built a decision helper where five AI advisors debate a real founder choice in a timed session, vote on options, and produce a structured brief with ranked paths, risks, and next steps.",
+    "Orchestrated debate, vote extraction, and synthesis on one monotonic session clock with shared in-memory state—~15–20 LLM calls per run at roughly $0.01/session on flash-tier models.",
+    "Shipped guest demo with Turnstile captcha, JWT auth, Postgres persistence, and SSE streaming; split deploy on Vercel (web) and Render (API).",
+  ],
+  github: "https://github.com/vibhu-dixit/HiivBuddy",
+  live: "https://hiiv-buddy.vercel.app",
+},{
     title: "ZeroETL",
     subtitle: "Python Package for Apache Iceberg",
-    period: "May – Jun 2025",
+    period: "May 2025 – Jun 2025",
     tech: ["Python", "Kafka", "Apache Iceberg", "S3"],
     tags: ["Backend", "Data Engineering", "Open Source"],
     points: [
