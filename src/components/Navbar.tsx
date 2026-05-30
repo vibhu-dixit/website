@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
   { label: "ABOUT", href: "#about" },
@@ -31,26 +32,31 @@ const Navbar = () => {
           V.DIXIT
         </a>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="font-mono text-xs tracking-widest text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
-              {item.label}
-            </a>
-          ))}
-        </div>
+        <div className="flex items-center gap-4 md:gap-6">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="font-mono text-xs tracking-widest text-muted-foreground hover:text-primary transition-colors duration-300"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-primary"
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          <ThemeToggle />
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden text-primary"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

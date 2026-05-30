@@ -5,6 +5,68 @@
 
 @layer base {
   :root {
+    --background: 355 28% 92%;
+    --foreground: 340 18% 20%;
+
+    --card: 350 26% 94%;
+    --card-foreground: 340 18% 20%;
+
+    --popover: 350 26% 94%;
+    --popover-foreground: 340 18% 20%;
+
+    --primary: 192 85% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 350 22% 87%;
+    --secondary-foreground: 340 16% 24%;
+
+    --muted: 355 18% 88%;
+    --muted-foreground: 340 10% 42%;
+
+    --accent: 192 75% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 350 20% 80%;
+    --input: 350 20% 80%;
+    --ring: 192 85% 38%;
+
+    --radius: 0.25rem;
+
+    --jarvis-cyan: 192 85% 38%;
+    --jarvis-cyan-dim: 192 55% 52%;
+    --jarvis-blue: 195 65% 42%;
+    --jarvis-glow: 192 90% 45%;
+    --jarvis-dark: 340 18% 20%;
+    --jarvis-panel: 350 32% 96%;
+
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+
+    --glow-sm: 0 0 5px hsl(192 85% 38% / 0.2), 0 0 10px hsl(192 85% 38% / 0.08);
+    --glow-md: 0 0 10px hsl(192 85% 38% / 0.28), 0 0 20px hsl(192 85% 38% / 0.12), 0 0 40px hsl(192 85% 38% / 0.05);
+    --glow-lg: 0 0 15px hsl(192 85% 38% / 0.35), 0 0 30px hsl(192 85% 38% / 0.15), 0 0 60px hsl(192 85% 38% / 0.08);
+
+    --sidebar-background: 355 26% 90%;
+    --sidebar-foreground: 340 18% 20%;
+    --sidebar-primary: 192 85% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 350 22% 87%;
+    --sidebar-accent-foreground: 340 16% 24%;
+    --sidebar-border: 350 20% 80%;
+    --sidebar-ring: 192 85% 38%;
+
+    --jarvis-canvas-bg: 355 28% 92%;
+    --jarvis-panel-border: 350 24% 78% / 0.45;
+    --jarvis-panel-inset: 0 1px 0 hsl(350 45% 98% / 0.65) inset;
+    --scrollbar-thumb: 192 85% 38% / 0.35;
+    --scrollbar-thumb-hover: 192 85% 38% / 0.55;
+  }
+
+  .dark {
     --background: 220 25% 4%;
     --foreground: 190 100% 80%;
 
@@ -33,18 +95,12 @@
     --input: 190 60% 20%;
     --ring: 190 100% 50%;
 
-    --radius: 0.25rem;
-
     --jarvis-cyan: 190 100% 50%;
     --jarvis-cyan-dim: 190 80% 30%;
     --jarvis-blue: 210 100% 50%;
     --jarvis-glow: 190 100% 60%;
     --jarvis-dark: 220 25% 4%;
     --jarvis-panel: 220 20% 8%;
-
-    --font-display: 'Orbitron', sans-serif;
-    --font-body: 'Rajdhani', sans-serif;
-    --font-mono: 'Share Tech Mono', monospace;
 
     --glow-sm: 0 0 5px hsl(190 100% 50% / 0.3), 0 0 10px hsl(190 100% 50% / 0.1);
     --glow-md: 0 0 10px hsl(190 100% 50% / 0.4), 0 0 20px hsl(190 100% 50% / 0.15), 0 0 40px hsl(190 100% 50% / 0.05);
@@ -58,6 +114,12 @@
     --sidebar-accent-foreground: 190 100% 70%;
     --sidebar-border: 190 60% 20%;
     --sidebar-ring: 190 100% 50%;
+
+    --jarvis-canvas-bg: 220 25% 4%;
+    --jarvis-panel-border: 190 100% 50% / 0.15;
+    --jarvis-panel-inset: none;
+    --scrollbar-thumb: 190 100% 50% / 0.3;
+    --scrollbar-thumb-hover: 190 100% 50% / 0.5;
   }
 }
 
@@ -89,11 +151,11 @@
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 10px hsl(190 100% 50% / 0.6), 0 0 20px hsl(190 100% 50% / 0.3);
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.45), 0 0 20px hsl(var(--primary) / 0.2);
   }
 
   .text-glow-sm {
-    text-shadow: 0 0 5px hsl(190 100% 50% / 0.4);
+    text-shadow: 0 0 5px hsl(var(--primary) / 0.35);
   }
 
   .border-glow {
@@ -105,7 +167,7 @@
   }
 
   .hud-line {
-    background: linear-gradient(90deg, transparent, hsl(190 100% 50% / 0.6), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.5), transparent);
     height: 1px;
   }
 
@@ -119,7 +181,7 @@
     position: absolute;
     width: 12px;
     height: 12px;
-    border-color: hsl(190 100% 50% / 0.6);
+    border-color: hsl(var(--primary) / 0.5);
   }
 
   .hud-corner::before {
@@ -137,9 +199,21 @@
   }
 
   .jarvis-panel {
-    background: hsl(220 20% 8% / 0.8);
-    border: 1px solid hsl(190 100% 50% / 0.15);
+    background: hsl(var(--jarvis-panel) / 0.88);
+    border: 1px solid hsl(var(--jarvis-panel-border));
     backdrop-filter: blur(10px);
+    box-shadow: var(--jarvis-panel-inset);
+  }
+
+  .jarvis-bg-wash {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 38%, hsl(350 42% 96% / 0.62), transparent 72%),
+      radial-gradient(ellipse 120% 80% at 50% 100%, hsl(355 35% 88% / 0.22), transparent 55%),
+      linear-gradient(180deg, hsl(350 38% 95% / 0.28) 0%, transparent 50%, hsl(340 22% 84% / 0.1) 100%);
+  }
+
+  .dark .jarvis-bg-wash {
+    background: transparent;
   }
 
   .scanline {
@@ -147,8 +221,8 @@
       0deg,
       transparent,
       transparent 2px,
-      hsl(190 100% 50% / 0.03) 2px,
-      hsl(190 100% 50% / 0.03) 4px
+      hsl(var(--primary) / 0.03) 2px,
+      hsl(var(--primary) / 0.03) 4px
     );
     pointer-events: none;
   }
@@ -175,7 +249,7 @@
 
 @keyframes blink-caret {
   0%, 100% { border-color: transparent; }
-  50% { border-color: hsl(190 100% 50%); }
+  50% { border-color: hsl(var(--primary)); }
 }
 
 @keyframes float {
@@ -189,14 +263,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(220 25% 4%);
+  background: hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(190 100% 50% / 0.3);
+  background: hsl(var(--scrollbar-thumb));
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(190 100% 50% / 0.5);
+  background: hsl(var(--scrollbar-thumb-hover));
 }

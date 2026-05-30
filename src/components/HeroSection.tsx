@@ -31,7 +31,7 @@ const HeroSection = () => {
 
         {/* Subtitle */}
         <p className={`font-body text-lg sm:text-xl tracking-[0.2em] text-secondary-foreground transition-all duration-1000 ${showSubtitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-          FULL-STACK SDE (AI) · MS CS @ ASU
+          FULL-STACK SDE  · MS CS @ ASU
         </p>
 
         {/* CTA */}
@@ -43,7 +43,7 @@ const HeroSection = () => {
             VIEW PROJECTS
           </a>
           <a
-            href={`${import.meta.env.BASE_URL}VibhuDixit_Resume.pdf`}
+            href={`${import.meta.env.BASE_URL}Vibhu_Dixit_Resume.pdf`}
             download
             className="jarvis-panel px-8 py-3 font-mono text-xs tracking-widest text-primary hover:border-primary/50 hover:border-glow-md transition-all duration-300 hud-corner"
           >

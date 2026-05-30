@@ -19,38 +19,38 @@ const projects = [
   {
   title: "Hotel Booking AI Agent",
   subtitle: "Multi-Channel AI Concierge for Trip Intent → Hotel Discovery & Booking",
-  period: "April 2026 – may 2026",
+  period: "Mar 2026 – Apr 2026",
   tech: ["React", "Vite", "TypeScript", "FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "Google Places", "NVIDIA LLM", "Deepgram", "Linq SMS/iMessage", "Booking.com"],
   tags: ["Full-Stack", "Backend", "AI/ML"],
   points: [
-    "Built an AI concierge that turns natural language (“I need a room in Sedona next weekend”) into ranked hotels, comparable quotes, and Booking.com prefilled links—with explicit human-in-the-loop approval before any booking step.",
-    "Orchestrated multi-channel trip building on one shared backend: web form + mic upload and Linq SMS/iMessage (text + voice notes via Deepgram) feed the same LLM trip extraction, Google Places discovery, quote scoring, and phase-based SMS workflow (collect → search → reply 1/2/… → payment link).",
-    "Shipped signed Linq webhooks with dedup, threaded multi-turn session state in Postgres, swappable stub/live hotel providers, and a layered FastAPI architecture (routers → application services → infrastructure adapters) with a React (Vite) UI.",
+    "Built Linq webhooks and SMS trip extraction flows using single JSON calls per turn (12k-char input, 2048-token output), converting unstructured text into structured trip state with lower latency.",
+    "Engineered a voice pipeline using STT and relevance filtering to extract travel entities before mapping, reducing token payloads and improving structured extraction efficiency.",
+    "Exposed 14 REST routes across eight modules using Python, SQLAlchemy, and PostgreSQL, enabling a unified backend for Linq SMS and web clients.",
   ],
   github: "https://github.com/vibhu-dixit/Hotel-Booking-Agent",
 },
   {
   title: "Hiiv",
   subtitle: "Timed AI Advisory Sessions for Founders",
-  period: " Feb 2026 – Present",
+  period: "Jan 2026 – Feb 2026",
   tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "FastAPI", "PostgreSQL", "SSE", "OpenAI SDK", "Pydantic", "JWT", "Cloudflare Turnstile", "Vercel", "Render"],
   tags: ["Full-Stack", "Backend", "AI/ML"],
   points: [
-    "Built a decision helper where five AI advisors debate a real founder choice in a timed session, vote on options, and produce a structured brief with ranked paths, risks, and next steps.",
-    "Orchestrated debate, vote extraction, and synthesis on one monotonic session clock with shared in-memory state—~15–20 LLM calls per run at roughly $0.01/session on flash-tier models.",
-    "Shipped guest demo with Turnstile captcha, JWT auth, Postgres persistence, and SSE streaming; split deploy on Vercel (web) and Render (API).",
+    "Developed an autonomous AI framework with five specialized roles and OpenAI-compatible LLM integration, designing the pipeline architecture and iterating implementation using Claude Code.",
+    "Constructed the complete technical engine, reducing initial user-wait times to <200ms through non-blocking streaming data flow.",
+    "Templatized a modular design, reducing feature addition time from several days to under 3 hours.",
   ],
   github: "https://github.com/vibhu-dixit/HiivBuddy",
-  live: "https://hiiv-buddy.vercel.app",
+  live: "https://hiiv-buddy.vercel.app/",
 },{
     title: "ZeroETL",
-    subtitle: "Python Package for Apache Iceberg",
+    subtitle: "Open Source High-Throughput Ingestion Library",
     period: "May 2025 – Jun 2025",
-    tech: ["Python", "Kafka", "Apache Iceberg", "S3"],
+    tech: ["Python", "PySpark", "Apache Iceberg", "Kafka"],
     tags: ["Backend", "Data Engineering", "Open Source"],
     points: [
-      "Achieved 1.5M rows/min throughput with optimized commit batching.",
-      "Released open-source library with 200+ PyPI downloads.",
+      "Designed and implemented a zero-ETL PySpark ingestion framework for Apache Iceberg with deduplication, snapshot management, and time-travel queries, enabling reliable and reproducible data states across batch pipelines.",
+      "Open-sourced the library and improved ingestion reliability and operational efficiency for small-business data workflows by reducing manual processing overhead and improving pipeline performance and consistency with close to 820 downloads.",
     ],
     github: "https://github.com/vibhu-dixit/zeroetl",
     pypi: "https://pypi.org/project/zeroetl/",
@@ -69,13 +69,13 @@ const projects = [
   },
   {
     title: "Mavenly",
-    subtitle: "LLM-Driven Intelligence Pipeline",
-    period: "Sep – Nov 2025",
-    tech: ["FastAPI", "LangChain", "LLM APIs", "Streamlit"],
+    subtitle: "LLM Intelligence Pipeline",
+    period: "Nov 2025 – Dec 2025",
+    tech: ["LangChain", "LangGraph", "Streamlit", "Python"],
     tags: ["AI/ML", "Full-Stack", "Backend"],
     points: [
-      "Built AI-native service automating dataset reasoning with hallucination guardrails.",
-      "Designed validation policies improving reliability across 4 risk categories.",
+      "Developed a backend service with LangChain and LangGraph that analyzes datasets from natural language and returns structured results with quality guardrails.",
+      "Implemented multi-agent ReAct workflows that improved reasoning reliability across multiple risk categories. Created a Streamlit interface that allows non-technical users to get accurate insights quickly.",
     ],
     github: "https://github.com/vibhu-dixit/Mavenly",
   },
@@ -224,8 +224,13 @@ const ProjectsSection = () => {
               <div className="flex items-start justify-between mb-2">
                 <h3 className="font-display text-sm tracking-wider text-primary">{project.title}</h3>
                 <div className="flex gap-2">
+                  {project.live && (
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" title="Live demo">
+                      <ExternalLink className="w-3.5 h-3.5 text-muted-foreground hover:text-primary transition-colors" />
+                    </a>
+                  )}
                   {project.pypi && (
-                    <a href={project.pypi} target="_blank" rel="noopener noreferrer">
+                    <a href={project.pypi} target="_blank" rel="noopener noreferrer" title="PyPI">
                       <ExternalLink className="w-3.5 h-3.5 text-muted-foreground hover:text-primary transition-colors" />
                     </a>
                   )}

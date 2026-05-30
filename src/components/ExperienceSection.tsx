@@ -26,12 +26,11 @@ const experiences = [
   {
     role: "Software Engineer Intern",
     company: "PRIVV",
-    period: "Jan 2026 – Present",
+    period: "Jan 2026 – May 2026",
     points: [
-      "Architected a Node.js resolution service with structured logging and telemetry, reducing manual ledger navigation by 70%.",
-      "Engineered end-to-end invoice system with AWS Textract, achieving 80% reduction in manual data entry.",
-      "Implemented production-grade RESTful APIs with 99.9% uptime across microservices.",
-      "Improved system reliability by 50% via optimized API latency and distributed tracing.",
+      "Engineered a bulk invoicing module using AWS Textract as OCR tool, enabling document extraction and automation that reduced manual accounting overhead by 80% across vendor and contract workflows for project managers.",
+      "Architected the core engine for agentic customized reporting, defining system design and data flow for a flagship feature in a capital project management platform, leading to faster decision making.",
+      "Built modular RESTful microservices and accompanying unit/integration test suites, improving reliability and production stability for AI-driven features used in real-time contractor decision-making.",
     ],
   },
   {
@@ -39,9 +38,9 @@ const experiences = [
     company: "ALCON",
     period: "Feb 2024 – Aug 2024",
     points: [
-      "Built Flask-based microservices for telemetry data, deployed on AWS with Apache Airflow.",
-      "Designed distributed ETL processing 50M+ telemetry events/day.",
-      "Reduced development cycle time by 43% through automated monitoring and validation.",
+      "Optimized data persistence layers in DynamoDB for the Inventory Analytics Dashboard, testing different keys for partitioning, improving query performance and data visibility by 40%.",
+      "Designed high-availability Airflow ETL pipelines for the Global Telemetry Platform, processing 50M+ events daily to enable real-time health monitoring of surgical equipment.",
+      "Containerized Airflow triggered ETL worker services using Docker, ensuring consistent deployment of the Data Ingestion Service across development and production environments.",
     ],
   },
 ];

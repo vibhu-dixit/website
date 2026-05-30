@@ -34,14 +34,14 @@ const AboutSection = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <p className="font-body text-lg font-medium text-muted-foreground leading-relaxed mb-4">
-                Full-stack AI engineer pursuing an MS in Computer Science at Arizona State University,
-                focused on building end-to-end intelligent systems — from scalable cloud backends to
-                LLM-powered applications.
+                Full-Stack Software Engineer with focus on high-velocity product delivery. Experienced
+                in building end-to-end AI applications, pursuing an MS in Computer Science at Arizona
+                State University.
               </p>
               <p className="font-body text-lg font-medium text-muted-foreground leading-relaxed">
-                Currently building production systems at PRIVV — from invoice automation with AWS Textract
-                to high-reliability microservices with 99.9% uptime. Previously engineered data pipelines
-                processing 50M+ events/day at Alcon.
+                Proven track record of operating autonomously and deploying production-ready
+                integrations — from AWS Textract invoicing and agentic reporting at PRIVV to
+                high-availability Airflow ETL pipelines processing 50M+ events daily at Alcon.
               </p>
             </div>
             <div className="space-y-4">

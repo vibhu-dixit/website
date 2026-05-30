@@ -17,23 +17,27 @@ const useInView = () => {
 const skillCategories = [
   {
     label: "LANGUAGES",
-    skills: ["Python", "TypeScript", "JavaScript", "C++", "SQL"],
+    skills: ["Python", "TypeScript", "JavaScript", "SQL"],
   },
   {
-    label: "BACKEND & SYSTEMS",
-    skills: ["Node.js", "Express", "FastAPI", "REST APIs", "Microservices", "System Design"],
+    label: "FRONTEND",
+    skills: ["React", "Next.js", "Vite", "Tailwind CSS", "Streamlit"],
+  },
+  {
+    label: "BACKEND & APIS",
+    skills: ["FastAPI", "Node.js", "Express", "REST APIs", "PostgreSQL", "MongoDB", "SQLAlchemy", "SSE"],
   },
   {
     label: "AI & ML",
-    skills: ["LLM APIs", "LangChain", "Agentic AI", "MLOps", "MLflow"],
-  },
-  {
-    label: "CLOUD & INFRA",
-    skills: ["AWS", "Azure", "Docker", "CI/CD", "Linux"],
+    skills: ["LangChain", "LangGraph", "PyTorch", "Computer Vision", "Deep Learning", "OpenAI SDK", "Agentic AI", "MLOps"],
   },
   {
     label: "DATA ENGINEERING",
-    skills: ["Kafka", "Apache Iceberg", "Airflow", "ETL/ELT", "PostgreSQL"],
+    skills: ["PySpark", "Apache Iceberg", "Kafka", "ETL/ELT", "Clustering", "MLflow"],
+  },
+  {
+    label: "CLOUD & DEPLOY",
+    skills: ["Azure", "Vercel", "Render", "XGBoost", "ZenML", "Real-time Systems"],
   },
 ];
 
