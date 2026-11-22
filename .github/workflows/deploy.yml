@@ -1,4 +1,3 @@
-# Build and deploy the Vite app to GitHub Pages (project site: username.github.io/website)
 name: Deploy to GitHub Pages
 
 on:
@@ -25,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Install dependencies
