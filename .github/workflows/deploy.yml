@@ -38,7 +38,14 @@ jobs:
         run: node scripts/fetch-repos.js
 
       - name: Build
-        run: npm run build
+        env:
+          CONVEX_DEPLOY_KEY: ${{ secrets.CONVEX_DEPLOY_KEY }}
+        run: |
+          if [ -n "$CONVEX_DEPLOY_KEY" ]; then
+            npx convex deploy --cmd "npm run build"
+          else
+            npm run build
+          fi
 
       # GitHub Pages serves 404.html for unknown paths — use same as index so SPA routing works
       - name: Copy index to 404 for SPA routing

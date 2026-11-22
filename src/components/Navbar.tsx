@@ -1,80 +1,55 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ThemeToggleButton } from "@/components/ui/skiper-ui/skiper26";
 
 const navItems = [
-  { label: "ABOUT", href: "#about" },
-  { label: "EXPERIENCE", href: "#experience" },
-  { label: "PROJECTS", href: "#projects" },
-  { label: "RESEARCH", href: "#research" },
-  { label: "SKILLS", href: "#skills" },
-  { label: "CONTACT", href: "#contact" },
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Research", href: "#research" },
+  { label: "Skills", href: "#skills" },
+  { label: "Postcards", href: "#postcards" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [compact, setCompact] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const update = () => setCompact(window.scrollY > 96);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "jarvis-panel border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="font-display text-sm tracking-[0.3em] text-primary text-glow">
-          V.DIXIT
-        </a>
-
-        <div className="flex items-center gap-4 md:gap-6">
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="font-mono text-xs tracking-widest text-muted-foreground hover:text-primary transition-colors duration-300"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-
-          <ThemeToggle />
-
-          {/* Mobile menu button */}
+    <header className={`editorial-header ${compact ? "is-compact" : ""}`}>
+      <a className="skip-link" href="#main">Skip to content</a>
+      <div className="editorial-header-inner">
+        <span className="edition-label">Portfolio / 2026</span>
+        <a className="masthead" href="#top" aria-label="Vibhu Dixit, back to top">Vibhu Dixit</a>
+        <div className="header-actions">
+          <ThemeToggleButton />
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-primary"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            className="menu-button"
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="site-navigation"
+            onClick={() => setOpen((current) => !current)}
           >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            <span /><span /><span />
           </button>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden jarvis-panel border-t border-border px-6 py-4 space-y-4">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className="block font-mono text-xs tracking-widest text-muted-foreground hover:text-primary transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
-        </div>
-      )}
-    </nav>
+      <nav id="site-navigation" className={`editorial-nav ${open ? "is-open" : ""}`} aria-label="Site navigation">
+        {navItems.map((item) => (
+          <a key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</a>
+        ))}
+        <Link to="/edition" onClick={() => setOpen(false)}>Build an edition</Link>
+      </nav>
+    </header>
   );
 };
 

@@ -48,6 +48,25 @@ npm run preview
 
 ---
 
+## Postcard wall
+
+The postcard wall sits between Skills and Contact. Visitors can send a name (optional), city, short note, and stamp. Submissions are private until reviewed.
+
+1. Run `npx convex dev` alongside `npm run dev`. Convex writes the local URL to the ignored `.env.local` file.
+2. For the public site, link this repository to its own Convex project with `npx convex login` and `npx convex dev --configure new`.
+3. Create a production deploy key in Convex and add it to this GitHub repository as the `CONVEX_DEPLOY_KEY` Actions secret. The Pages workflow then deploys the backend and builds the frontend with the production URL.
+4. Review submissions in the Convex dashboard's `postcards` table. Set `visible` to `true` to publish a postcard, or delete it to reject it.
+
+Without a Convex URL, the section shows a setup message and the rest of the portfolio still runs.
+
+---
+
+## Build a portfolio edition
+
+Open `/edition` from the hero or navigation menu. Choose Broadsheet, Classic, or Project dossier, select the sections to include, then use **Print / Save PDF** and choose your browser's Save as PDF destination. The standard résumé remains available as a separate download.
+
+---
+
 ## Connect With Me
 
 | | |

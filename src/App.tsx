@@ -1,19 +1,20 @@
 import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "next-themes";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { ThemeProvider } from "@/context/ThemeContext";
 
 const Index = lazy(() => import("./pages/Index.tsx"));
+const EditionBuilder = lazy(() => import("./pages/EditionBuilder.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
+  <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+    <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -24,6 +25,14 @@ const App = () => (
               element={
                 <Suspense fallback={<div className="min-h-screen bg-background" />}>
                   <Index />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/edition"
+              element={
+                <Suspense fallback={<div className="min-h-screen bg-background" />}>
+                  <EditionBuilder />
                 </Suspense>
               }
             />
@@ -39,8 +48,8 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+    </QueryClientProvider>
+  </ThemeProvider>
 );
 
 export default App;

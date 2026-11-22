@@ -1,3 +1,4 @@
+import { experiences } from "@/data/portfolio";
 import { useEffect, useRef, useState } from "react";
 
 const SectionHeader = ({ label, title }: { label: string; title: string }) => (
@@ -22,28 +23,7 @@ const useInView = () => {
   return { ref, inView };
 };
 
-const experiences = [
-  {
-    role: "Software Engineer Intern",
-    company: "PRIVV",
-    period: "Jan 2026 – May 2026",
-    points: [
-      "Engineered a bulk invoicing module using AWS Textract as OCR tool, enabling document extraction and automation that reduced manual accounting overhead by 80% across vendor and contract workflows for project managers.",
-      "Architected the core engine for agentic customized reporting, defining system design and data flow for a flagship feature in a capital project management platform, leading to faster decision making.",
-      "Built modular RESTful microservices and accompanying unit/integration test suites, improving reliability and production stability for AI-driven features used in real-time contractor decision-making.",
-    ],
-  },
-  {
-    role: "Data Engineer Intern",
-    company: "ALCON",
-    period: "Feb 2024 – Aug 2024",
-    points: [
-      "Optimized data persistence layers in DynamoDB for the Inventory Analytics Dashboard, testing different keys for partitioning, improving query performance and data visibility by 40%.",
-      "Designed high-availability Airflow ETL pipelines for the Global Telemetry Platform, processing 50M+ events daily to enable real-time health monitoring of surgical equipment.",
-      "Containerized Airflow triggered ETL worker services using Docker, ensuring consistent deployment of the Data Ingestion Service across development and production environments.",
-    ],
-  },
-];
+
 
 const ExperienceSection = () => {
   const { ref, inView } = useInView();

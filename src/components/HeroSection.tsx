@@ -1,64 +1,41 @@
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const HeroSection = () => {
-  const [showSubtitle, setShowSubtitle] = useState(false);
-  const [showStatus, setShowStatus] = useState(false);
-
-  useEffect(() => {
-    const t1 = setTimeout(() => setShowSubtitle(true), 800);
-    const t2 = setTimeout(() => setShowStatus(true), 1600);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, []);
-
-  return (
-    <section className="relative z-10 min-h-screen flex items-center justify-center px-6">
-      <div className="text-center max-w-3xl">
-        {/* Status indicator */}
-        <div className={`flex items-center justify-center gap-2 mb-8 transition-all duration-700 ${showStatus ? "opacity-100" : "opacity-0"}`}>
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
-          <span className="font-mono text-xs tracking-[0.4em] text-muted-foreground uppercase">
-            System Online
-          </span>
+const HeroSection = () => (
+  <section id="top" className="editorial-hero" aria-labelledby="hero-title">
+      <div className="feature-strip">
+        <a className="feature-tile feature-hotel" href="#projects">
+          <span className="feature-image" role="img" aria-label="Illustrated hotel interior" />
+          <span className="feature-copy"><strong>Selected work</strong><small>Software, systems & ideas</small></span>
+        </a>
+        <div className="feature-intro">
+          <span className="eyebrow">Independent portfolio · No. 01</span>
+          <h2>Building things<br /><em>that think.</em></h2>
+          <p>Full-stack engineer working across AI, data, and product.</p>
+          <a href="#projects">Explore the work <span aria-hidden="true">↗</span></a>
         </div>
-
-        {/* Name */}
-        <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-wider text-primary text-glow animate-flicker mb-4">
-          VIBHU DIXIT
-        </h1>
-
-        {/* Separator */}
-        <div className="hud-line w-48 mx-auto mb-6" />
-
-        {/* Subtitle */}
-        <p className={`font-body text-lg sm:text-xl tracking-[0.2em] text-secondary-foreground transition-all duration-1000 ${showSubtitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-          FULL-STACK SDE  · MS CS @ ASU
-        </p>
-
-        {/* CTA */}
-        <div className={`mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-500 ${showStatus ? "opacity-100" : "opacity-0"}`}>
-          <a
-            href="#projects"
-            className="jarvis-panel px-8 py-3 font-mono text-xs tracking-widest text-primary hover:border-primary/50 hover:border-glow-md transition-all duration-300 hud-corner"
-          >
-            VIEW PROJECTS
-          </a>
-          <a
-            href={`${import.meta.env.BASE_URL}Vibhu_Dixit_Resume.pdf`}
-            download
-            className="jarvis-panel px-8 py-3 font-mono text-xs tracking-widest text-primary hover:border-primary/50 hover:border-glow-md transition-all duration-300 hud-corner"
-          >
-            DOWNLOAD RÉSUMÉ
-          </a>
-          <a
-            href="#contact"
-            className="px-8 py-3 font-mono text-xs tracking-widest text-muted-foreground hover:text-primary transition-colors duration-300"
-          >
-            INITIALIZE CONTACT
-          </a>
-        </div>
+        <a className="feature-tile feature-portrait" href="#about">
+          <span className="feature-image" role="img" aria-label="Illustration of an engineer at work" />
+          <span className="feature-copy"><strong>About Vibhu</strong><small>Engineer / maker / researcher</small></span>
+        </a>
       </div>
-    </section>
-  );
-};
+
+      <div className="name-banner">
+        <span className="banner-kicker">The portfolio of</span>
+        <h1 id="hero-title">VIBHU<br className="mobile-break" /> DIXIT</h1>
+        <div className="banner-footer"><span>Full-stack & AI engineer</span><span>San Francisco / Everywhere</span></div>
+      </div>
+
+      <div className="hero-bottom">
+        <p><span className="drop-cap">I</span> design and build useful software, from production systems to intelligent applications.</p>
+        <div>
+          <span className="eyebrow">Currently</span>
+          <strong>Founding Engineer at Casuro</strong>
+          <Link to="/edition">Build your edition ↗</Link>
+          <a href={`${import.meta.env.BASE_URL}Vibhu_Dixit_Resume.pdf`} download>Download résumé ↗</a>
+        </div>
+        <a className="seal" href="#postcards" aria-label="Leave a postcard"><span aria-hidden="true">✷</span><small>LEAVE A<br />POSTCARD</small></a>
+      </div>
+  </section>
+);
 
 export default HeroSection;

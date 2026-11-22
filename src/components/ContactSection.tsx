@@ -5,7 +5,7 @@ const ContactSection = () => {
     <section id="contact" className="relative z-10 py-24 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-12">
-          <span className="font-mono text-xs tracking-[0.4em] text-muted-foreground">// 06</span>
+          <span className="font-mono text-xs tracking-[0.4em] text-muted-foreground">// 07</span>
           <h2 className="font-display text-2xl sm:text-3xl tracking-wider text-primary text-glow-sm mt-2">CONTACT</h2>
           <div className="hud-line w-24 mt-4 mx-auto" />
         </div>

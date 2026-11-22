@@ -1,3 +1,4 @@
+import { publications } from "@/data/portfolio";
 import { useEffect, useRef, useState } from "react";
 
 const useInView = () => {
@@ -14,18 +15,7 @@ const useInView = () => {
   return { ref, inView };
 };
 
-const publications = [
-  {
-    title: "Evidence-Guided Schema Normalization for Temporal Tabular Reasoning",
-    venue: "arXiv 2025",
-    description: "Schema-guided Text-to-SQL framework for temporal reasoning, achieving 16.8% EM improvement over LLM-only baselines.",
-  },
-  {
-    title: "Analysis of Crime Data Visualization and Clustering",
-    venue: "IEEE CSITSS 2023",
-    description: "Applied PCA and K-Means clustering demonstrating 45% higher clustering quality over manual feature extraction.",
-  },
-];
+
 
 const ResearchSection = () => {
   const { ref, inView } = useInView();

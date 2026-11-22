@@ -1,4 +1,7 @@
+import { aboutParagraphs } from "@/data/portfolio";
 import { useEffect, useRef, useState } from "react";
+
+
 
 const useInView = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -33,16 +36,11 @@ const AboutSection = () => {
         >
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <p className="font-body text-lg font-medium text-muted-foreground leading-relaxed mb-4">
-                Full-Stack Software Engineer with focus on high-velocity product delivery. Experienced
-                in building end-to-end AI applications, pursuing an MS in Computer Science at Arizona
-                State University.
-              </p>
-              <p className="font-body text-lg font-medium text-muted-foreground leading-relaxed">
-                Proven track record of operating autonomously and deploying production-ready
-                integrations — from AWS Textract invoicing and agentic reporting at PRIVV to
-                high-availability Airflow ETL pipelines processing 50M+ events daily at Alcon.
-              </p>
+              {aboutParagraphs.map((paragraph, index) => (
+                <p key={paragraph} className={`font-body text-lg font-medium text-muted-foreground leading-relaxed ${index === 0 ? "mb-4" : ""}`}>
+                  {paragraph}
+                </p>
+              ))}
             </div>
             <div className="space-y-4">
               <div className="flex items-center gap-3">

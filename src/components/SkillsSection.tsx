@@ -1,3 +1,4 @@
+import { skillCategories } from "@/data/portfolio";
 import { useEffect, useRef, useState } from "react";
 
 const useInView = () => {
@@ -14,32 +15,7 @@ const useInView = () => {
   return { ref, inView };
 };
 
-const skillCategories = [
-  {
-    label: "LANGUAGES",
-    skills: ["Python", "TypeScript", "JavaScript", "SQL"],
-  },
-  {
-    label: "FRONTEND",
-    skills: ["React", "Next.js", "Vite", "Tailwind CSS", "Streamlit"],
-  },
-  {
-    label: "BACKEND & APIS",
-    skills: ["FastAPI", "Node.js", "Express", "REST APIs", "PostgreSQL", "MongoDB", "SQLAlchemy", "SSE"],
-  },
-  {
-    label: "AI & ML",
-    skills: ["LangChain", "LangGraph", "PyTorch", "Computer Vision", "Deep Learning", "OpenAI SDK", "Agentic AI", "MLOps"],
-  },
-  {
-    label: "DATA ENGINEERING",
-    skills: ["PySpark", "Apache Iceberg", "Kafka", "ETL/ELT", "Clustering", "MLflow"],
-  },
-  {
-    label: "CLOUD & DEPLOY",
-    skills: ["Azure", "Vercel", "Render", "XGBoost", "ZenML", "Real-time Systems"],
-  },
-];
+
 
 const SkillsSection = () => {
   const { ref, inView } = useInView();
